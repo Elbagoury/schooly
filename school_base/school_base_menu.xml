@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+
+<!-- MENUS -->
+	<menuitem
+		id="school_mi"
+		name="School"
+		web_icon="images/logo2.png"
+		web_icon_hover="images/logo.png"
+		icon="STOCK_HOME"/>
+
+	<menuitem
+		id="school_teaching_mi"
+		name="Teaching"
+		parent="school_mi" />
+		
+	<menuitem
+		id="school_configuration_mi"
+		name="Configuration"
+		parent="school_mi"
+		groups="res_groups_school_administrator_group"
+		sequence="30"/>
+		<menuitem
+			id="school_teachers_mi"
+			parent="school_configuration_mi" icon="STOCK_EDIT"
+			action="teachers_list_act" sequence="65" />
+		<menuitem
+			id="school_holidays_calendar_mi"
+			parent="school_configuration_mi"
+			action="school_holidays_calendar_list_act"/>
+		<menuitem
+			id="school_course_mi"
+			parent="school_configuration_mi"
+			action="school_course_list_act"/>
+		<menuitem
+			id="school_offer_mi"
+			parent="school_configuration_mi"
+			action="school_offer_list_act"/>
+		<menuitem
+			id="school_session_mi"
+			parent="school_configuration_mi"
+			action="school_session_list_act"/>
+		<menuitem
+			id="school_school_mi"
+			name="School"
+			parent="school_configuration_mi"
+			action="school_school_action"
+			groups="school_useability_multi_school"/>
+
+    </data>
+</openerp>

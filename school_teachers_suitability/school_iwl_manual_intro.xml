@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+<!-- school.iwl.def_hours -->
+
+        <record model="ir.ui.view" id="school_iwl_def_hours_form_view">
+            <field name="name">school.iwl.def_hours.form</field>
+            <field name="model">school.iwl.def_hours</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Hours Definition">
+                    <field name="name" colspan="4" />
+                    <newline />
+                    <field name="hours" colspan="4" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_iwl_def_hours_tree_view">
+            <field name="name">school.iwl.def_hours.tree</field>
+            <field name="model">school.iwl.def_hours</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Hours Definitions">
+                    <field name="name" colspan="4" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_iwl_def_hours_act">
+            <field name="name">IWL Hours Definition</field>
+            <field name="res_model">school.iwl.def_hours</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_iwl_def_hours_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_def_hours_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_iwl_def_hours_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_iwl_def_hours_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_def_hours_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_iwl_def_hours_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+<!-- school.iwl.def_hour -->
+
+        <record model="ir.ui.view" id="school_iwl_def_hour_form_view">
+            <field name="name">school.iwl.def_hour.form</field>
+            <field name="model">school.iwl.def_hour</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Hour Definition">
+                    <field name="week_day" />
+                    <field name="hour_from" widget="float_time" />
+                    <field name="hour_to" widget="float_time" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_iwl_def_hour_tree_view">
+            <field name="name">school.iwl.def_hour.tree</field>
+            <field name="model">school.iwl.def_hour</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Hour Definitions">
+                    <field name="week_day" />
+                    <field name="hour_from" widget="float_time" />
+                    <field name="hour_to" widget="float_time" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_iwl_def_hour_act">
+            <field name="name">IWL Hour Definition</field>
+            <field name="res_model">school.iwl.def_hour</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_iwl_def_hour_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_def_hour_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_iwl_def_hour_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_iwl_def_hour_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_def_hour_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_iwl_def_hour_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+<!-- school.iwl_manual_intro -->
+
+        <record model="ir.ui.view" id="school_iwl_manual_intro_form_view1">
+            <field name="name">school.iwl_manual_intro.form1</field>
+            <field name="model">school.iwl.manual_intro_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="IWL Manual Intro" >
+                    <field name="teacher_id" on_change="on_change('teacher_id',teacher_id)" colspan="4" />
+                    <field name="teacher_domain" invisible="1" />
+                    <field name="course_id" on_change="on_change('course_id',course_id)" colspan="4" />
+                    <field name="course_domain" invisible="1" />
+                    <field name="group_id" on_change="on_change('group_id',group_id)" colspan="4" />
+                    <field name="group_domain" invisible="1" />
+                    <field name="room_id" on_change="on_change('room_id',room_id)" colspan="4" />
+                    <field name="room_domain" invisible="1" />
+                    <field name="def_hour_id" on_change="on_change('def_hour_id',def_hour_id)" colspan="4" />
+                    <field name="hour_domain" invisible="1" />
+                    <field name="classe_id" on_change="on_change('classe_id',classe_id)" colspan="4" />
+                    <field name="classe_domain" invisible="1" />
+                    <field name="iwl_id" on_change="on_change('iwl_id',iwl_id)" colspan="4" />
+                    <field name="iwl_domain" invisible="1" />
+                    <field name="teacher_data_id" on_change="on_change('teacher_data_id',teacher_data_id)" colspan="4" />
+                    <field name="teacher_data_domain" invisible="1" />
+                    <field name="weeks_to_pass" on_change="on_change('weeks_to_pass',weeks_to_pass)" />
+                    <field name="week_to_init" on_change="on_change('week_to_init',week_to_init)" />
+                    <field name="create_ok" invisible="1" />
+                    <group colspan="4" col="4">
+                    <button name="create_all" type="object" attrs="{'invisible': [('create_ok','=',False)],}" string="Create" />
+                    <button name="delete_classe" type="object" attrs="{'invisible': ['|',('mode','=','to complete'),('classe_id','=',False)],}" string="Delete Classe" />
+                    <button name="delete_iwl" type="object" attrs="{'invisible': ['|',('mode','=','to complete'),('iwl_id','=',False)],}" string="Delete IWL" />
+                    <button name="delete_td" type="object" attrs="{'invisible': ['|',('mode','=','to complete'),('teacher_data_id','=',False)],}" string="Delete TD" />
+                    </group>
+                    <notebook>
+                        <page string="Teacher IWL">
+                            <field name="teacher_iwl_ids" nolabel="1" colspan="4" readonly="1" />
+                        </page>
+                        <page string="Group IWL">
+                            <field name="group_iwl_ids" nolabel="1" colspan="4" readonly="1" />
+                        </page>
+                        <page string="Room IWL">
+                            <field name="room_iwl_ids" nolabel="1" colspan="4" readonly="1" />
+                        </page>
+                        <page string="Options">
+                            <field name="def_hours_id" on_change="on_change('def_hours_id',def_hours_id)" colspan="4" />
+                            <field name="date_from" on_change="on_change('date_from',date_from)" />
+                            <field name="date_to" on_change="on_change('date_to',date_to)" />
+                            <field name="priority" on_change="on_change('priority',priority)" />
+                            <field name="mode" on_change="on_change('mode',mode)" />
+                            <field name="teacher_suitability_option" on_change="on_change('teacher_suitability_option',teacher_suitability_option)" />
+                            <field name="groups_to_complete_course_option" on_change="on_change('groups_to_complete_course_option',groups_to_complete_course_option)" />
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_iwl_manual_intro_form_view0">
+            <field name="name">school.iwl_manual_intro.form0</field>
+            <field name="model">school.iwl.manual_intro_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="IWL Manual Intro: Options" >
+                    <field name="def_hours_id" colspan="4" />
+                    <field name="date_from" />
+                    <field name="date_to" />
+                    <field name="calendar_id" />
+                    <field name="priority" />
+                    <field name="mode" />
+                    <field name="teacher_suitability_option" />
+                    <field name="groups_to_complete_course_option" />
+                    <button name="create_wizard" string="Create Wizard" type="object" icon="gtk-ok" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_iwl_manual_intro_act">
+            <field name="name">Week Hours Manual Intro</field>
+            <field name="type">ir.actions.act_window</field>
+            
+            <field name="res_model">school.iwl.manual_intro_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_iwl_manual_intro_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_manual_intro_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_iwl_manual_intro_form_view0"/>
+			<field eval="20" name="sequence"/>
+		</record>
+
+        <menuitem
+            id="school_iwl_manual_intro_mi"
+            parent="school_teachers_suitability_mi" icon="STOCK_EDIT"
+            action="school_iwl_manual_intro_act" sequence="550" />
+
+</data>
+
+</openerp>

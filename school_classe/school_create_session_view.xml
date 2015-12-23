@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+
+
+<!-- school.create_session -->
+
+        <record model="ir.ui.view" id="create_session_form_view_0">
+            <field name="name">school.create_session_view_0</field>
+            <field name="model">school.create_session</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Create Session" >
+                    <group>
+                        <field name="name" />
+                        <field name="date_from" />
+                        <field name="date_to" />
+                        <field name="lines" />
+                    </group>
+                    <group colspan="4" col="2" >
+                        <button name="action_cancel" string="_Cancel" icon="gtk-cancel" special="cancel" />
+                        <button name="action_apply" type="object" string="_Apply" icon="gtk-apply" />
+                    </group>
+                    <label string="Offers" />
+                    <field name="offer_ids" colspan="4" />
+               </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="create_session_act">
+            <field name="name">Create Session from Offer</field>
+            <field name="res_model">school.create_session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="ir_create_session" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'school.offer'" name="model"/>
+            <field name="name">Create Session</field>
+            <field eval="'ir.actions.act_window,%d'%create_session_act" name="value"/>
+            <field eval="True" name="object"/>
+        </record>
+
+
+</data>
+
+</openerp>

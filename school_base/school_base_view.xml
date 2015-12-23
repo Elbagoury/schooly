@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+<!-- groups.participation -->
+        <record model="ir.ui.view" id="groups_participation_tree_view_0">
+            <field name="name">groups.participation.tree.all</field>
+            <field name="model">groups.participation</field>
+			<field name="inherit_id" ref="timed_groups.groups_participation_tree_view"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='name']" position="replace">
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="groups_participation_tree_view_1">
+            <field name="name">groups.participation.tree.all</field>
+            <field name="model">groups.participation</field>
+			<field name="inherit_id" ref="groups_participation_tree_view_0"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='participant']" position="after">
+                    <field name="session_id" string="Session"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="groups_participation_form_view_0">
+            <field name="name">groups.participation.form.all</field>
+            <field name="model">groups.participation</field>
+			<field name="inherit_id" ref="timed_groups.groups_participation_form_view"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="/form/field[@name='participant']" position="after">
+                    <field name="session_id" string="Session"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="groups_participation_list_act">
+            <field name="name">Participations</field>
+            <field name="res_model">groups.participation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_groups_participation_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_participation_list_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="groups_participation_tree_view_1"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+		<record id="ir_actions_act_window_view_groups_participation_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_participation_list_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="groups_participation_form_view_0"/>
+			<field eval="1" name="sequence"/>
+		</record>
+
+
+<!-- Teacher -->
+
+        <record model="ir.ui.view" id="school_teacher_tree_view_0">
+            <field name="name">teacher.tree.all</field>
+            <field name="model">school.teacher</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Teachers">
+                    <field name="name" select="1" />
+                    <field name="teacher_code" select="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_teacher_form_view_0">
+            <field name="name">teacher.form.all</field>
+            <field name="model">school.teacher</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Teacher">
+		    <group>
+			<field name="teacher_code" />
+			<field name="user_id" />
+		    </group>
+		    <notebook>
+		    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="teachers_list_act">
+            <field name="name">Teachers</field>
+            <field name="res_model">school.teacher</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_teachers_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="teachers_list_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_teacher_tree_view_0"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+		<record id="ir_actions_act_window_view_teachers_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="teachers_list_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_teacher_form_view_0"/>
+			<field eval="1" name="sequence"/>
+		</record>
+
+
+<!-- school.course -->
+        <record model="ir.ui.view" id="school_course_tree_view">
+            <field name="name">school.course.tree.all</field>
+            <field name="model">school.course</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Courses">
+                    <field name="name" string="Course name"/>
+                    <field name="code" />
+                    <field name="min_hours" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_course_form_view">
+            <field name="name">school.course.form.all</field>
+            <field name="model">school.course</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Course">
+		    <group>
+			<field name="name" string="Course name"/>
+			<field name="code" />
+			<field name="min_hours" />
+			<field name="active" string="Active"/>
+		    </group>
+               </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_course_list_act">
+            <field name="name">Courses</field>
+            <field name="res_model">school.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_school_course_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_course_list_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_course_tree_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+		<record id="ir_actions_act_window_view_school_course_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_course_list_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_course_form_view"/>
+			<field eval="1" name="sequence"/>
+		</record>
+
+
+<!-- school.offer -->
+        <record model="ir.ui.view" id="school_offer_tree_view">
+            <field name="name">school.offer.tree.all</field>
+            <field name="model">school.offer</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Offers">
+                    <field name="name" string="Course name"/>
+                    <field name="course_ids" string="Courses" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_offer_form_view">
+            <field name="name">school.offer.form.all</field>
+            <field name="model">school.offer</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Offer">
+		    <group>
+			<field name="name" string="Offer name" colspan="4"/>
+			<field name="active" string="Active"/>
+		    </group>
+		    <notebook>
+			<page string="Courses">
+			    <field name="course_ids" nolabel="1" string="Courses" colspan="4" >
+				<tree string="Courses">
+				    <field name="name" string="Course"/>
+				    <field name="min_hours" />
+				    <field name="needly" string="Needly"/>
+				</tree>
+				<form string="Course">
+				    <group>
+					<field name="name" string="Course"/>
+					<field name="min_hours" />
+					<field name="needly" string="Needly"/>
+				    </group>
+				</form>
+			    </field>
+			</page>
+		    </notebook>
+               </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_offer_list_act">
+            <field name="name">Offers</field>
+            <field name="res_model">school.offer</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_school_offer_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_offer_list_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_offer_tree_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+		<record id="ir_actions_act_window_view_school_offer_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_offer_list_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_offer_form_view"/>
+			<field eval="1" name="sequence"/>
+		</record>
+
+
+<!-- school.session -->
+        <record model="ir.ui.view" id="school_session_tree_view">
+            <field name="name">school.session.tree.all</field>
+            <field name="model">school.session</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Sessions">
+                    <field name="name" string="Session name"/>
+                    <field name="school_id" groups="school_base.school_useability_multi_school"/>
+                    <field name="offer" string="Offer"/>
+                    <field name="date_from" string="From"/>
+                    <field name="date_to" string="To"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_session_form_view">
+            <field name="name">school.session.form.all</field>
+            <field name="model">school.session</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+		    <group>
+			<field name="name" string="Session name"/>
+			<field name="offer" string="Offer"/>
+			<field name="date_from" string="From"/>
+			<field name="date_to" string="To"/>
+			<field name="school_id" groups="school_base.school_useability_multi_school"/>
+			<field name="active" string="Active"/>
+			<field name="group_id" />
+		    </group>
+               </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_session_list_act">
+            <field name="name">Sessions</field>
+            <field name="res_model">school.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_school_session_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_session_list_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_session_tree_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+		<record id="ir_actions_act_window_view_school_session_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_session_list_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_session_form_view"/>
+			<field eval="1" name="sequence"/>
+		</record>
+
+	
+<!-- school.holiday_interval -->
+        <record model="ir.ui.view" id="school_holiday_interval_tree_view">
+            <field name="name">school.holiday_interval.tree.all</field>
+            <field name="model">school.holiday_interval</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Holidays">
+                    <field name="name"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_holiday_interval_form_view">
+            <field name="name">school.holiday_interval.form.all</field>
+            <field name="model">school.holiday_interval</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Holiday interval">
+		    <group>
+			<field name="name" colspan="4"/>
+			<field name="date_from"/>
+			<field name="date_to"/>
+		    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_holiday_interval_list_act">
+            <field name="name">Holidays</field>
+            <field name="res_model">school.holiday_interval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_school_holiday_interval_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_holiday_interval_list_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_holiday_interval_tree_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+		<record id="ir_actions_act_window_view_school_holiday_interval_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_holiday_interval_list_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_holiday_interval_form_view"/>
+			<field eval="1" name="sequence"/>
+		</record>
+
+
+<!-- school.holidays_calendar -->
+        <record model="ir.ui.view" id="school_holidays_calendar_tree_view">
+            <field name="name">school.holidays_calendar.tree.all</field>
+            <field name="model">school.holidays_calendar</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Holidays Calendars">
+                    <field name="name"/>
+                    <field name="school_id" groups="school_base.school_useability_multi_school"/>
+                    <field name="holidays"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_holidays_calendar_form_view">
+            <field name="name">school.holidays_calendar.form.all</field>
+            <field name="model">school.holidays_calendar</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Holidays calendar">
+                    <group>
+                        <field name="name"/>
+                        <field name="school_id" groups="school_base.school_useability_multi_school"/>
+                        <newline/>
+                    </group>
+                    <newline/>
+                    <label string="Holiday intervals"/>
+                    <field name="holidays" colspan="4" nolabel="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_holidays_calendar_list_act">
+            <field name="name">Holidays Calendars</field>
+            <field name="res_model">school.holidays_calendar</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_school_holidays_calendar_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_holidays_calendar_list_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_holidays_calendar_tree_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+		<record id="ir_actions_act_window_view_school_holidays_calendar_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_holidays_calendar_list_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_holidays_calendar_form_view"/>
+			<field eval="1" name="sequence"/>
+		</record>
+
+
+<!-- school.school -->
+        <record model="ir.ui.view" id="school_school_tree_view">
+            <field name="name">school.school.tree.view</field>
+            <field name="model">school.school</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Schools">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_school_form_view">
+            <field name="name">school.school.form.view</field>
+            <field name="model">school.school</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Schools">
+		    <group>
+			<field name="name"/>
+		    </group>
+                    <notebook colspan="4">
+                        <page string="Calendars">
+                            <field colspan="4" name="calendar_ids" nolabel="1" widget="many2many" select="1"/>
+                        </page>
+                        <page string="Sessions">
+                            <field colspan="4" name="session_ids" nolabel="1" widget="many2many" select="1"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_school_action">
+            <field name="name">School</field>
+            <field name="res_model">school.school</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</openerp>

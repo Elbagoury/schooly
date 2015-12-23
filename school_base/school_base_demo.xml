@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <!--
+        Resource: school.teacher
+        -->
+        
+       <record id="school_teacher_demo" model="school.teacher">
+            <field name="teacher_code">Demo</field>
+            <field name="user_id" ref="base.user_demo" />
+        </record>
+        
+        <record id="school_teacher_pete" model="school.teacher">
+            <field name="name">Pete Petete</field>
+            <field name="teacher_code">Pete</field>
+            <field name="login">pete</field>
+        </record>
+        
+        <!--
+        Resource: school.school
+        -->
+        
+        <record id="school_school_0" model="school.school">
+            <field name="name">Demo School</field>
+        </record>
+        
+        <!--
+        Resource: school.holidays_calendar
+        -->
+        
+        <record id="school_holidays_calendar" model="school.holidays_calendar">
+            <field name="name">Demo Holidays Calendar</field>
+            <field name="holidays" eval="[(0,0,{'name': 'Nadal 2015', 'date_from': '2015-12-22', 'date_to': '2016-01-07'}),
+                                    (0,0,{'name': 'Estiu 2016', 'date_from': '2016-06-22', 'date_to': '2016-09-15'})]" />
+        </record>
+        
+        <!--
+		Resource: school.course
+		-->
+
+        <record id="school_course_0" model="school.course">
+            <field name="name">Matemàtiques</field>
+            <field name="code">MA</field>
+        </record>
+        <record id="school_course_1" model="school.course">
+            <field name="name">Català</field>
+            <field name="code">CA</field>
+        </record>
+        <record id="school_course_2" model="school.course">
+            <field name="name">Anglès</field>
+            <field name="code">AN</field>
+        </record>
+        <record id="school_course_3" model="school.course">
+            <field name="name">Castellà</field>
+            <field name="code">CS</field>
+        </record>
+        <record id="school_course_4" model="school.course">
+            <field name="name">Socials</field>
+            <field name="code">SO</field>
+        </record>
+        <record id="school_course_5" model="school.course">
+            <field name="name">Naturals</field>
+            <field name="code">NT</field>
+        </record>
+
+        <!--
+		Resource: school.offer
+		-->
+
+        <record id="school_offer_0" model="school.offer">
+            <field name="name">1r ESO</field>
+            <field name="code">ESO1</field>
+        </record>
+        <record id="school_offer_1" model="school.offer">
+            <field name="name">2n ESO</field>
+            <field name="code">ESO2</field>
+        </record>
+        <record id="school_offer_2" model="school.offer">
+            <field name="name">3r ESO</field>
+            <field name="code">ESO3</field>
+        </record>
+        <record id="school_offer_3" model="school.offer">
+            <field name="name">4t ESO</field>
+            <field name="code">ESO4</field>
+        </record>
+        <record id="school_offer_4" model="school.offer">
+            <field name="name">1r BATX</field>
+            <field name="code">BTX1</field>
+        </record>
+        <record id="school_offer_5" model="school.offer">
+            <field name="name">2n BATX</field>
+            <field name="code">BTX2</field>
+        </record>
+
+
+        <!--
+		Resource: school.course
+		-->
+
+        <record id="school_course_0_of_0" model="school.course">
+            <field eval="ref('school_course_0')" name="parent_id"/>
+            <field eval="ref('school_offer_0')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_1_of_0" model="school.course">
+            <field eval="ref('school_course_1')" name="parent_id"/>
+            <field eval="ref('school_offer_0')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_2_of_0" model="school.course">
+            <field eval="ref('school_course_2')" name="parent_id"/>
+            <field eval="ref('school_offer_0')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_3_of_0" model="school.course">
+            <field eval="ref('school_course_3')" name="parent_id"/>
+            <field eval="ref('school_offer_0')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_4_of_0" model="school.course">
+            <field eval="ref('school_course_4')" name="parent_id"/>
+            <field eval="ref('school_offer_0')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_5_of_0" model="school.course">
+            <field eval="ref('school_course_5')" name="parent_id"/>
+            <field eval="ref('school_offer_0')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+
+
+        <record id="school_course_0_of_1" model="school.course">
+            <field eval="ref('school_course_0')" name="parent_id"/>
+            <field eval="ref('school_offer_1')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_1_of_1" model="school.course">
+            <field eval="ref('school_course_1')" name="parent_id"/>
+            <field eval="ref('school_offer_1')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_2_of_1" model="school.course">
+            <field eval="ref('school_course_2')" name="parent_id"/>
+            <field eval="ref('school_offer_1')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_3_of_1" model="school.course">
+            <field eval="ref('school_course_3')" name="parent_id"/>
+            <field eval="ref('school_offer_1')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_4_of_1" model="school.course">
+            <field eval="ref('school_course_4')" name="parent_id"/>
+            <field eval="ref('school_offer_1')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_5_of_1" model="school.course">
+            <field eval="ref('school_course_5')" name="parent_id"/>
+            <field eval="ref('school_offer_1')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+
+
+        <record id="school_course_0_of_2" model="school.course">
+            <field eval="ref('school_course_0')" name="parent_id"/>
+            <field eval="ref('school_offer_2')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_1_of_2" model="school.course">
+            <field eval="ref('school_course_1')" name="parent_id"/>
+            <field eval="ref('school_offer_2')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_2_of_2" model="school.course">
+            <field eval="ref('school_course_2')" name="parent_id"/>
+            <field eval="ref('school_offer_2')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_3_of_2" model="school.course">
+            <field eval="ref('school_course_3')" name="parent_id"/>
+            <field eval="ref('school_offer_2')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_4_of_2" model="school.course">
+            <field eval="ref('school_course_4')" name="parent_id"/>
+            <field eval="ref('school_offer_2')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_5_of_2" model="school.course">
+            <field eval="ref('school_course_5')" name="parent_id"/>
+            <field eval="ref('school_offer_2')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+
+
+        <record id="school_course_0_of_3" model="school.course">
+            <field eval="ref('school_course_0')" name="parent_id"/>
+            <field eval="ref('school_offer_3')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_1_of_3" model="school.course">
+            <field eval="ref('school_course_1')" name="parent_id"/>
+            <field eval="ref('school_offer_3')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_2_of_3" model="school.course">
+            <field eval="ref('school_course_2')" name="parent_id"/>
+            <field eval="ref('school_offer_3')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_3_of_3" model="school.course">
+            <field eval="ref('school_course_3')" name="parent_id"/>
+            <field eval="ref('school_offer_3')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_4_of_3" model="school.course">
+            <field eval="ref('school_course_4')" name="parent_id"/>
+            <field eval="ref('school_offer_3')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_5_of_3" model="school.course">
+            <field eval="ref('school_course_5')" name="parent_id"/>
+            <field eval="ref('school_offer_3')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+
+
+        <record id="school_course_0_of_4" model="school.course">
+            <field eval="ref('school_course_0')" name="parent_id"/>
+            <field eval="ref('school_offer_4')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_1_of_4" model="school.course">
+            <field eval="ref('school_course_1')" name="parent_id"/>
+            <field eval="ref('school_offer_4')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_2_of_4" model="school.course">
+            <field eval="ref('school_course_2')" name="parent_id"/>
+            <field eval="ref('school_offer_4')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_3_of_4" model="school.course">
+            <field eval="ref('school_course_3')" name="parent_id"/>
+            <field eval="ref('school_offer_4')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_4_of_4" model="school.course">
+            <field eval="ref('school_course_4')" name="parent_id"/>
+            <field eval="ref('school_offer_4')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_5_of_4" model="school.course">
+            <field eval="ref('school_course_5')" name="parent_id"/>
+            <field eval="ref('school_offer_4')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+
+
+        <record id="school_course_0_of_5" model="school.course">
+            <field eval="ref('school_course_0')" name="parent_id"/>
+            <field eval="ref('school_offer_5')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_1_of_5" model="school.course">
+            <field eval="ref('school_course_1')" name="parent_id"/>
+            <field eval="ref('school_offer_5')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_2_of_5" model="school.course">
+            <field eval="ref('school_course_2')" name="parent_id"/>
+            <field eval="ref('school_offer_5')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_3_of_5" model="school.course">
+            <field eval="ref('school_course_3')" name="parent_id"/>
+            <field eval="ref('school_offer_5')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_4_of_5" model="school.course">
+            <field eval="ref('school_course_4')" name="parent_id"/>
+            <field eval="ref('school_offer_5')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+        <record id="school_course_5_of_5" model="school.course">
+            <field eval="ref('school_course_5')" name="parent_id"/>
+            <field eval="ref('school_offer_5')" name="offer_id"/>
+            <field name="needly">required</field>
+            <field name="min_hours" eval="90" />
+        </record>
+
+
+    </data>
+</openerp>

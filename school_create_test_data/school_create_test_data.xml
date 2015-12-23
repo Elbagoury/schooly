@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--
+		Resource: school.create_test_data
+-->
+        <record id="school_create_test_data_0" model="school.create_test_data">
+            <field name="num_week_hours_per_teacher" eval="25" />
+            <field name="lack" eval="5" />
+            <field name="lack2" eval="5" />
+        </record>
+
+        <function model="school.create_test_data" name="create_test_data">
+            <value eval="[ref('school_create_test_data_0'),]" />
+        </function>
+
+
+    </data>
+</openerp>

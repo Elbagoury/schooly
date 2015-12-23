@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+<!-- school.teachers_solution -->
+
+        <record model="ir.ui.view" id="school_teachers_solution_fet_form_view">
+            <field name="name">school.teachers_solution.fet.form</field>
+            <field name="model">school.teachers_solution</field>
+            <field name="inherit_id" ref="school_teacher_assignation.school_teachers_solution_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/group/field[@name='value']" position="after">
+		    <field name="fet_state" />
+		    <field name="output_dir" />
+		</xpath>
+		<xpath expr="/form/group/field[@name='teacher_iwl_ids']" position="replace">
+		</xpath>
+                <xpath expr="/form/group" position="after">
+		    <notebook>
+			<page string="Linies">
+			    <field name="teacher_iwl_ids" />
+			</page>
+			<page string="Resultat FET">
+			    <field name="fet_result" />
+			</page>
+		    </notebook>
+		</xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_teachers_solution_fet_tree_view">
+            <field name="name">school.teachers_solution.fet.tree</field>
+            <field name="model">school.teachers_solution</field>
+            <field name="inherit_id" ref="school_teacher_assignation.school_teachers_solution_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='value']" position="after">
+		    <field name="fet_state" />
+		</xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_creating_solutions_fet_form_view">
+            <field name="name">school.creating_solutions.fet.form</field>
+            <field name="model">school.creating_solutions</field>
+            <field name="inherit_id" ref="school_teacher_assignation.school_creating_solutions_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/group/field[@name='value']" position="after">
+		    <field name="fet_computing" />
+		</xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_creating_solutions_fet_tree_view">
+            <field name="name">school.creating_solutions.fet.tree</field>
+            <field name="model">school.creating_solutions</field>
+            <field name="inherit_id" ref="school_teacher_assignation.school_creating_solutions_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='value']" position="after">
+		    <field name="fet_computing" />
+		</xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_create_solutions_fet_form_view">
+            <field name="name">school.create_solutions.fet.form</field>
+            <field name="model">school.create_solutions</field>
+            <field name="inherit_id" ref="school_teacher_assignation.school_create_solutions_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/group/field[@name='afina']" position="after">
+		    <field name="fet_computing" />
+		</xpath>
+            </field>
+        </record>
+
+</data>
+
+</openerp>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+
+<!-- Wizard export -->
+
+        <record model="ir.ui.view" id="school_fet_export_form_view">
+            <field name="name">school.fet.export.form</field>
+            <field name="model">school.fet.export</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Fet Export">
+                    <field name="iwl_ids" />
+                    <newline />
+                    <field name="file" />
+                    <button type="object" name="generate_file" colspan="4" string="Generate File" />
+                    <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="2" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_fet_export_list_act">
+            <field name="name">FET export</field>
+            <field name="res_model">school.fet.export</field>
+            <field name="src_model">school.impartition_week_line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="ir_school_fet_export" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'school.impartition_week_line'" name="model"/>
+            <field name="name">FET export</field>
+            <field eval="'ir.actions.act_window,%d'%school_fet_export_list_act" name="value"/>
+        </record>
+
+<!-- Wizard import -->
+
+        <record model="ir.ui.view" id="school_fet_import_form_view">
+            <field name="name">school.fet.import.form</field>
+            <field name="model">school.fet.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Fet Import">
+                    <field name="file" />
+                    <button type="object" name="import_file" colspan="4" string="Import File" />
+                    <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="2" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_fet_import_list_act">
+            <field name="name">FET import</field>
+            <field name="res_model">school.fet.import</field>
+            <field name="src_model">school.impartition_week_line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_fet_import_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_fet_import_list_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_fet_import_form_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+
+        <menuitem
+            id="school_fet_import__mi"
+            parent="school_iwl.school_scheduling_mi" icon="STOCK_EDIT"
+            action="school_fet_import_list_act" sequence="500" />
+
+</data>
+
+</openerp>

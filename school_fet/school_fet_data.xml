@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+ <!-- school.fet.hour -->
+
+         <record id="r_school_fet_hour_0" model="school.fet.hour">
+            <field name="hour_from" >8</field>
+            <field name="hour_to">9</field>
+            <field name="sequence">1</field>
+        </record>
+         <record id="r_school_fet_hour_1" model="school.fet.hour">
+            <field name="hour_from" >9</field>
+            <field name="hour_to">10</field>
+            <field name="sequence">2</field>
+        </record>
+         <record id="r_school_fet_hour_2" model="school.fet.hour">
+            <field name="hour_from" >10</field>
+            <field name="hour_to">11</field>
+            <field name="sequence">3</field>
+        </record>
+         <record id="r_school_fet_hour_3" model="school.fet.hour">
+            <field name="hour_from" >11.5</field>
+            <field name="hour_to">12.5</field>
+            <field name="sequence">4</field>
+        </record>
+         <record id="r_school_fet_hour_4" model="school.fet.hour">
+            <field name="hour_from" >12.5</field>
+            <field name="hour_to">13.5</field>
+            <field name="sequence">5</field>
+        </record>
+         <record id="r_school_fet_hour_5" model="school.fet.hour">
+            <field name="hour_from" >15.5</field>
+            <field name="hour_to">16.5</field>
+            <field name="sequence">6</field>
+        </record>
+         <record id="r_school_fet_hour_6" model="school.fet.hour">
+            <field name="hour_from" >16.5</field>
+            <field name="hour_to">17.5</field>
+            <field name="sequence">7</field>
+        </record>
+
+
+ <!-- school.fet.day -->
+         <record id="r_school_fet_day_0" model="school.fet.day">
+            <field name="name" >monday</field>
+        </record>
+         <record id="r_school_fet_day_1" model="school.fet.day">
+            <field name="name" >tuesday</field>
+        </record>
+         <record id="r_school_fet_day_2" model="school.fet.day">
+            <field name="name" >wednesday</field>
+        </record>
+         <record id="r_school_fet_day_3" model="school.fet.day">
+            <field name="name" >thursday</field>
+        </record>
+         <record id="r_school_fet_day_4" model="school.fet.day">
+            <field name="name" >friday</field>
+        </record>
+
+</data>
+
+</openerp>

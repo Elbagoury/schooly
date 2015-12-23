@@ -1,0 +1,4 @@
+"id","name","model_id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_school_teachers_solution_admin",school.teachers_solution.admin","school.teachers_solution","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_teacher_iwl_solution_admin",school.teacher_iwl_solution.admin","school.teacher_iwl_solution","school_base.res_groups_school_direction_group",1,1,1,1
+

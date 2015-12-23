@@ -1,0 +1,221 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* school_fet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.15\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-05-21 08:17:08+0000\n"
+"PO-Revision-Date: 2011-05-21 10:33+0100\n"
+"Last-Translator: Pau Gangonells <pau@tecnoba.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: school_fet
+#: field:school.fet.aules_propies,group_id:0
+msgid "Group"
+msgstr "Grupo"
+
+#. module: school_fet
+#: constraint:school.fet.hour:0
+msgid "Overlaping"
+msgstr "Solapamiento"
+
+#. module: school_fet
+#: model:ir.module.module,shortdesc:school_fet.module_meta_information
+msgid "School Fet Interface"
+msgstr "School Fet Interface"
+
+#. module: school_fet
+#: model:ir.model,name:school_fet.model_school_fet_aules_propies
+msgid "school.fet.aules_propies"
+msgstr "school.fet.aules_propies"
+
+#. module: school_fet
+#: field:school.fet.export,iwl_ids:0
+msgid "IWLs"
+msgstr "IWLs"
+
+#. module: school_fet
+#: field:school.fet.day,name:0
+msgid "Week day"
+msgstr "Día de la semana"
+
+#. module: school_fet
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "Nom de model invàlid en l'acció definida"
+
+#. module: school_fet
+#: model:ir.model,name:school_fet.model_school_fet_export
+msgid "school.fet.export"
+msgstr "school.fet.export"
+
+#. module: school_fet
+#: model:ir.actions.act_window,name:school_fet.school_fet_aules_propies_list_act
+#: model:ir.ui.menu,name:school_fet.school_fet_aules_propies__mi
+#: view:school.fet.aules_propies:0
+msgid "Own rooms"
+msgstr "Aulas propias"
+
+#. module: school_fet
+#: selection:school.fet.day,name:0
+msgid "tuesday"
+msgstr "Martes"
+
+#. module: school_fet
+#: selection:school.fet.day,name:0
+msgid "saturday"
+msgstr "Sábado"
+
+#. module: school_fet
+#: field:school.fet.aules_propies,percentatge:0
+msgid "Percentatge"
+msgstr "Porcentaje"
+
+#. module: school_fet
+#: selection:school.fet.day,name:0
+msgid "monday"
+msgstr "lunes"
+
+#. module: school_fet
+#: view:school.fet.export:0
+msgid "Import File"
+msgstr "Importa archivo"
+
+#. module: school_fet
+#: model:ir.model,name:school_fet.model_school_fet_day
+msgid "school.fet.day"
+msgstr "school.fet.day"
+
+#. module: school_fet
+#: constraint:ir.model:0
+msgid "The Object name must start with x_ and not contain any special character !"
+msgstr "The Object name must start with x_ and not contain any special character !"
+
+#. module: school_fet
+#: selection:school.fet.day,name:0
+msgid "thursday"
+msgstr "jueves"
+
+#. module: school_fet
+#: model:ir.actions.act_window,name:school_fet.school_fet_hour_list_act
+#: model:ir.ui.menu,name:school_fet.school_fet_hour__mi
+#: view:school.fet.hour:0
+msgid "Hours"
+msgstr "Horas"
+
+#. module: school_fet
+#: selection:school.fet.day,name:0
+msgid "sunday"
+msgstr "domingo"
+
+#. module: school_fet
+#: field:school.fet.hour,hour_to:0
+msgid "Hour to"
+msgstr "Hora final"
+
+#. module: school_fet
+#: view:school.fet.export:0
+msgid "Fet Export"
+msgstr "Exportación al FET"
+
+#. module: school_fet
+#: view:school.fet.day:0
+msgid "Day"
+msgstr "Día"
+
+#. module: school_fet
+#: model:ir.actions.act_window,name:school_fet.school_fet_export_list_act
+msgid "FET export"
+msgstr "Exportación al FET"
+
+#. module: school_fet
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "XML inválido para la estructura de la vista!"
+
+#. module: school_fet
+#: view:school.fet.export:0
+msgid "Generate File"
+msgstr "Genera Archivo"
+
+#. module: school_fet
+#: field:school.fet.aules_propies,room_id:0
+msgid "Room"
+msgstr "Aula"
+
+#. module: school_fet
+#: view:school.fet.hour:0
+msgid "Hour"
+msgstr "Hora"
+
+#. module: school_fet
+#: selection:school.fet.day,name:0
+msgid "friday"
+msgstr "viernes"
+
+#. module: school_fet
+#: model:ir.actions.act_window,name:school_fet.school_fet_day_list_act
+#: model:ir.ui.menu,name:school_fet.school_fet_day__mi
+#: view:school.fet.day:0
+msgid "Days"
+msgstr "Días"
+
+#. module: school_fet
+#: model:ir.model,name:school_fet.model_school_fet_hour
+msgid "school.fet.hour"
+msgstr "school.fet.hour"
+
+#. module: school_fet
+#: field:school.fet.hour,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: school_fet
+#: view:school.fet.aules_propies:0
+msgid "Own room"
+msgstr "Aula propia"
+
+#. module: school_fet
+#: field:school.fet.hour,hour_from:0
+msgid "Hour from"
+msgstr "Hora inicio"
+
+#. module: school_fet
+#: selection:school.fet.day,name:0
+msgid "wednesday"
+msgstr "miércoles"
+
+#. module: school_fet
+#: field:school.fet.export,file:0
+msgid "File"
+msgstr "Archivo"
+
+#. module: school_fet
+#: view:school.fet.export:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: school_fet
+#: model:ir.ui.menu,name:school_fet.school_fet_mi
+msgid "Timetable Management"
+msgstr "Gestión de horarios"
+
+#. module: school_fet
+#: model:ir.module.module,description:school_fet.module_meta_information
+msgid ""
+"\n"
+"Wizard for change the teachers who they didn't register on the system for the seances.\n"
+"\n"
+"Dependency : school_base\n"
+msgstr ""
+"\n"
+"Wizard for change the teachers who they didn't register on the system for the seances.\n"
+"\n"
+"Dependency : school_base\n"
+

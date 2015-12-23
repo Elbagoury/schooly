@@ -1,0 +1,5 @@
+"id","name","model_id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_school_teacher_course_suitability_admin","school.teacher_course_suitability.admin","school.teacher_course_suitability","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_iwl_def_hours_admin","school_iwl_def_hours.admin","school.iwl.def_hours","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_iwl_def_hour_admin","school_iwl_def_hour.admin","school.iwl.def_hour","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_iwl_mi_last_room_by_group_admin","school.iwl_manual_intro.last_room_by_group.admin","school.iwl_manual_intro.last_room_by_group","school_base.res_groups_school_direction_group",1,1,1,1

@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+        <menuitem
+            id="school_teachers_suitability_mi"
+            parent="school_base.school_mi" icon="STOCK_EDIT"
+            name="Teachers Suitability" sequence="550" />
+
+<!-- school.impartition_week_line -->
+
+        <record model="ir.ui.view" id="school_iwl_teachers_number_form_view">
+            <field name="name">school.iwl_teachers_number.form</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="IWL Teachers number" >
+                    <group col="4">
+                        <field name="classe_id" />
+                        <field name="week_day" />
+                        <field name="hour_from" widget="float_time" />
+                        <field name="duration" widget="float_time" />
+                        <field name="room_id" />
+                        <field name="subgroup" />
+                        <field name="weeks_to_pass" />
+                        <field name="week_to_init" />
+                        <field name="teachers_needed" />
+                        <field name="teachers_recommended" />
+                        <field name="teachers_lack" />
+                        <field name="teachers" colspan="4" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_iwl_teachers_number_tree_view">
+            <field name="name">school.iwl_teachers_number.tree</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="IWLs Teachers number" >
+                    <field name="classe_id" />
+                    <field name="week_day" />
+                    <field name="hour_from" widget="float_time" />
+                    <field name="duration" widget="float_time" />
+                    <field name="room_id" />
+                    <field name="weeks_to_pass" />
+                    <field name="week_to_init" />
+                    <field name="teachers_needed" />
+                    <field name="teachers_recommended" />
+                    <field name="teachers_lack" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_iwl_teachers_number_act">
+            <field name="name">Teachers in Week Hours</field>
+            <field name="res_model">school.impartition_week_line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_iwl_teachers_number_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_teachers_number_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_iwl_teachers_number_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_iwl_teachers_number_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_teachers_number_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_iwl_teachers_number_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+        <menuitem
+            id="school_iwl_teachers_number_mi"
+            parent="school_teachers_suitability_mi" icon="STOCK_EDIT"
+            action="school_iwl_teachers_number_act" sequence="550" />
+
+<!-- school.teacher -->
+
+        <record model="ir.ui.view" id="school_teacher_data_hours_form_view">
+            <field name="name">school.teacher_data_hours.form</field>
+            <field name="model">school.teacher</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Teacher Data Hours">
+                    <group col="4">
+                        <field name="name" colspan="4" />
+                        <newline />
+                        <field name="max_week_hours" colspan="2" />
+                        <field name="min_week_hours" colspan="2" />
+                        <field name="max_assigned_hours" colspan="2" />
+                        <field name="min_assigned_hours" colspan="2" />
+                        <field name="teacher_data_ids" colspan="4" readonly="1" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_teacher_data_hours_tree_view">
+            <field name="name">school.teacher_data_hours.tree</field>
+            <field name="model">school.teacher</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Teacher Course Suitabilities" editable="bottom" >
+                    <field name="name" readonly="1" />
+                    <field name="max_week_hours" />
+                    <field name="min_week_hours" />
+                    <field name="max_assigned_hours" select="1" />
+                    <field name="min_assigned_hours" select="1" />
+                    <field name="teacher_data_ids" readonly="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_teacher_data_hours_act">
+            <field name="name">Teacher Hours</field>
+            <field name="res_model">school.teacher</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_teacher_data_hours_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_data_hours_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_teacher_data_hours_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_teacher_data_hours_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_data_hours_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_teacher_data_hours_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+        <menuitem
+            id="school_teacher_data_hours_mi"
+            parent="school_teachers_suitability_mi" icon="STOCK_EDIT"
+            action="school_teacher_data_hours_act" sequence="530" />
+
+<!-- school.teacher_course_suitability -->
+
+        <record model="ir.ui.view" id="school_teacher_course_suitability_form_view">
+            <field name="name">school.teacher_course_suitability.form</field>
+            <field name="model">school.teacher_course_suitability</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Teacher Course Suitability">
+                    <group col="4">
+                        <field name="teacher_id" colspan="4" />
+                        <field name="course_id" colspan="4" />
+                        <field name="percentage" colspan="2" />
+                        <newline />
+                        <field name="max_week_hours" colspan="2" />
+                        <field name="min_week_hours" colspan="2" />
+                        <field name="max_assigned_hours" colspan="2" />
+                        <field name="min_assigned_hours" colspan="2" />
+                        <newline />
+                        <field name="total_max_hours" colspan="2" />
+                        <field name="total_min_hours" colspan="2" />
+                        <field name="total_max_assigned_hours" colspan="2" />
+                        <field name="total_min_assigned_hours" colspan="2" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_teacher_course_suitability_tree_view">
+            <field name="name">school.teacher_course_suitability.tree</field>
+            <field name="model">school.teacher_course_suitability</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Teacher Course Suitabilities" editable="bottom">
+                    <field name="teacher_id" />
+                    <field name="course_id" />
+                    <field name="percentage" />
+                    <field name="max_week_hours" />
+                    <field name="min_week_hours" />
+                    <field name="max_assigned_hours" select="1" />
+                    <field name="min_assigned_hours" select="1" />
+                    <field name="total_max_hours" />
+                    <field name="total_min_hours" />
+                    <field name="total_max_assigned_hours" select="1" />
+                    <field name="total_min_assigned_hours" select="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_teacher_course_suitability_act">
+            <field name="name">Course Suitabilities</field>
+            <field name="res_model">school.teacher_course_suitability</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_teacher_course_suitability_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_course_suitability_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_teacher_course_suitability_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_teacher_course_suitability_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_course_suitability_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_teacher_course_suitability_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+        <menuitem
+            id="school_teacher_course_suitability_mi"
+            parent="school_teachers_suitability_mi" icon="STOCK_EDIT"
+            action="school_teacher_course_suitability_act" sequence="530" />
+
+<!-- Wizard Change Teachers IWL -->
+
+        <record model="ir.ui.view" id="school_iwl_change_teachers_wizard_form_view">
+            <field name="name">school.iwl_change_teachers_wizard.form</field>
+            <field name="model">school.iwl_change_teachers_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Change IWL Teachers Wizard">
+                    <group>
+                        <field name="teachers_needed" colspan="4" />
+                        <field name="teachers_recommended" colspan="4" />
+                        <button type="object" name="action_block" colspan="4" string="Change Data" />
+                        <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="4" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_iwl_change_teachers_wizard_act">
+            <field name="name">Change IWL teachers data</field>
+            <field name="res_model">school.iwl_change_teachers_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_iwl_change_teachers_wizard_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_change_teachers_wizard_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_iwl_change_teachers_wizard_form_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+        <record id="ir_iwl_change_teachers_wizard" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'school.impartition_week_line'" name="model"/>
+            <field name="name">Teachers Wizard</field>
+            <field eval="'ir.actions.act_window,%d'%school_iwl_change_teachers_wizard_act" name="value"/>
+        </record>
+
+<!-- Wizard Change Teacher Hours -->
+
+        <record model="ir.ui.view" id="school_teacher_change_hours_form_view">
+            <field name="name">school.teacher_change_hours.form</field>
+            <field name="model">school.teacher_change_hours</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Change Teacher Hours Wizard">
+                    <group>
+                        <field name="teacher_ids" colspan="4" />
+                        <field name="max_hours" colspan="2" />
+                        <field name="min_hours" colspan="2" />
+                        <button type="object" name="action_change" colspan="4" string="Change Hours" />
+                        <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="4" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_teacher_change_hours_act">
+            <field name="name">Change hours</field>
+            <field name="res_model">school.teacher_change_hours</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_teacher_change_hours_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_change_hours_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_teacher_change_hours_form_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+        <record id="ir_teacher_change_hours" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'school.teacher'" name="model"/>
+            <field name="name">Change Teacher Hours</field>
+            <field eval="'ir.actions.act_window,%d'%school_teacher_change_hours_act" name="value"/>
+        </record>
+
+
+<!-- school.teacher_suitability_change -->
+
+        <record model="ir.ui.view" id="school_teacher_suitability_change_form_view">
+            <field name="name">school.teacher_suitability_change.form</field>
+            <field name="model">school.teacher_suitability_change</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Change Teacher Suitability Wizard">
+                    <group>
+                        <field name="teacher_ids" colspan="4" />
+                        <field name="course_ids" colspan="4" />
+                        <field name="percentage" colspan="2" />
+                        <field name="max_hours" colspan="2" />
+                        <field name="min_hours" colspan="2" />
+                        <button type="object" name="action_change" colspan="4" string="Change Suitability" />
+                        <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="4" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_teacher_suitability_change_act">
+            <field name="name">Change Teachers Suitability</field>
+            <field name="res_model">school.teacher_suitability_change</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_teacher_suitability_change_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_suitability_change_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_teacher_suitability_change_form_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+        <record id="ir_teacher_suitability_change" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'school.teacher'" name="model"/>
+            <field name="name">Change Suitability</field>
+            <field eval="'ir.actions.act_window,%d'%school_teacher_suitability_change_act" name="value"/>
+        </record>
+
+
+
+<!-- Wizard Block IWL -->
+
+        <record model="ir.ui.view" id="school_block_iwl_wizard_form_view">
+            <field name="name">school.block_iwl_wizard.form</field>
+            <field name="model">school.block_iwl_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Change Teacher Data Wizard">
+                    <field name="block" colspan="4" />
+                    <button type="object" name="action_block" colspan="4" string="Change Data" />
+                    <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="4" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_block_iwl_wizard_act">
+            <field name="name">Change teachers data</field>
+            <field name="res_model">school.block_iwl_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_block_iwl_wizard_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_block_iwl_wizard_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_block_iwl_wizard_form_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+        <record id="ir_block_iwl_wizard" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'school.impartition_week_line'" name="model"/>
+            <field name="name">Block or Free</field>
+            <field eval="'ir.actions.act_window,%d'%school_block_iwl_wizard_act" name="value"/>
+        </record>
+
+<!-- Wizard Block Teacher Data -->
+
+        <record model="ir.ui.view" id="school_block_td_wizard_form_view">
+            <field name="name">school.block_td_wizard.form</field>
+            <field name="model">school.block_td_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Change Teacher Data Wizard">
+                    <field name="block" colspan="4" />
+                    <button type="object" name="action_block" colspan="4" string="Block or Free" />
+                    <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="4" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_block_td_wizard_act">
+            <field name="name">Change teachers data</field>
+            <field name="res_model">school.block_td_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_block_td_wizard_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_block_td_wizard_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_block_td_wizard_form_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+        <record id="ir_block_td_wizard" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'school.teacher_data'" name="model"/>
+            <field name="name">Block or Free</field>
+            <field eval="'ir.actions.act_window,%d'%school_block_td_wizard_act" name="value"/>
+        </record>
+
+
+</data>
+
+</openerp>

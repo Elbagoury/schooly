@@ -1,0 +1,459 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* school_iwl
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.15\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-05-21 08:35:59+0000\n"
+"PO-Revision-Date: 2011-05-21 11:08+0100\n"
+"Last-Translator: Pau Gangonells <pau@tecnoba.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,limit_to:0
+msgid "Limit to"
+msgstr "Límite hasta"
+
+#. module: school_iwl
+#: model:ir.model,name:school_iwl.model_school_iwl_handling_teacher_course
+msgid "school.iwl.handling.teacher_course"
+msgstr "school.iwl.handling.teacher_course"
+
+#. module: school_iwl
+#: field:school.teacher_data,datetime_from:0
+msgid "From"
+msgstr "Desde"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,week_day:0
+#: field:school.teacher_data,week_day:0
+#: field:util.periodicity,week_day:0
+msgid "Week day"
+msgstr "Día de la semana"
+
+#. module: school_iwl
+#: field:school.teacher_data,title:0
+msgid "Title"
+msgstr "Título"
+
+#. module: school_iwl
+#: field:school.iwl.handling,classification_id_domain:0
+msgid "Classification Domain"
+msgstr "Dominio de la clasificación"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,week_day:0
+#: selection:school.teacher_data,week_day:0
+#: selection:util.periodicity,week_day:0
+msgid "tuesday"
+msgstr "martes"
+
+#. module: school_iwl
+#: field:school.iwl.handling.teacher_course,wizard_id:0
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: school_iwl
+#: constraint:ir.model:0
+msgid "The Object name must start with x_ and not contain any special character !"
+msgstr "The Object name must start with x_ and not contain any special character !"
+
+#. module: school_iwl
+#: view:school.classe:0
+msgid "Week hour"
+msgstr "Hora semanal"
+
+#. module: school_iwl
+#: model:ir.actions.act_window,name:school_iwl.school_impartition_week_line_list_act
+#: model:ir.ui.menu,name:school_iwl.school_impartition_week_line__mi
+#: view:school.impartition_week_line:0
+#: field:school.iwl.check_seances,iwl_ids:0
+#: field:school.iwl.handling,iwl_ids:0
+msgid "IWLs"
+msgstr "IWLs"
+
+#. module: school_iwl
+#: model:ir.model,name:school_iwl.model_school_iwl_handling
+msgid "school.iwl.handling"
+msgstr "school.iwl.handling"
+
+#. module: school_iwl
+#: selection:school.teacher_data,title:0
+msgid "Needed"
+msgstr "Necesario"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,seance_check_state:0
+#: field:school.iwl.check_seances,state:0
+#: field:school.iwl.handling,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: school_iwl
+#: selection:school.teacher_data,title:0
+msgid "Imperative"
+msgstr "Imperativo"
+
+#. module: school_iwl
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "Nombre de modelo inválido en la acción definida"
+
+#. module: school_iwl
+#: view:school.classe:0
+#: field:school.impartition_week_line,group_id:0
+msgid "Group"
+msgstr "Grupo"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,week_day:0
+#: selection:school.teacher_data,week_day:0
+#: selection:util.periodicity,week_day:0
+msgid "friday"
+msgstr "viernes"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,week_day:0
+#: selection:school.teacher_data,week_day:0
+#: selection:util.periodicity,week_day:0
+msgid "saturday"
+msgstr "sábado"
+
+#. module: school_iwl
+#: model:ir.actions.act_window,name:school_iwl.school_iwl_handling_act
+#: view:school.iwl.check_seances:0
+#: view:school.iwl.handling:0
+msgid "IWL Handling"
+msgstr "Manipulación de las IWL"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,seance_ids:0
+msgid "unknown"
+msgstr "desconocido"
+
+#. module: school_iwl
+#: view:school.classe:0
+msgid "Weekly hours"
+msgstr "Horas semanales"
+
+#. module: school_iwl
+#: model:ir.model,name:school_iwl.model_school_impartition_week_line
+msgid "school.impartition_week_line"
+msgstr "school.impartition_week_line"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,week_to_init:0
+#: field:school.teacher_data,week_to_init:0
+#: field:util.periodicity,week_to_init:0
+msgid "Week to init"
+msgstr "Semana de inicio"
+
+#. module: school_iwl
+#: selection:school.iwl.check_seances,state:0
+#: selection:school.iwl.handling,state:0
+msgid "Ready"
+msgstr "Preparado"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,seance_check_state:0
+#: selection:school.iwl.check_seances,state:0
+msgid "Completed"
+msgstr "Completado"
+
+#. module: school_iwl
+#: view:school.impartition_week_line:0
+#: field:school.seance,iwl_id:0
+#: field:school.teacher_data,iwl_id:0
+msgid "IWL"
+msgstr "IWL"
+
+#. module: school_iwl
+#: selection:school.iwl.handling,state:0
+msgid "Wrong"
+msgstr "Erróneo"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,week_day:0
+#: selection:school.teacher_data,week_day:0
+#: selection:util.periodicity,week_day:0
+msgid "thursday"
+msgstr "jueves"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,week_day:0
+#: selection:school.teacher_data,week_day:0
+#: selection:util.periodicity,week_day:0
+msgid "sunday"
+msgstr "domingo"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,date_to:0
+#: field:util.periodicity,date_to:0
+msgid "Date to"
+msgstr "Fecha final"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,weeks_to_pass:0
+#: field:school.teacher_data,weeks_to_pass:0
+#: field:util.periodicity,weeks_to_pass:0
+msgid "Week to pass"
+msgstr "Semanas a saltar"
+
+#. module: school_iwl
+#: field:school.iwl.handling,classification_method:0
+msgid "Classification method"
+msgstr "Método de clasificación"
+
+#. module: school_iwl
+#: help:school.impartition_week_line,weeks_to_pass:0
+#: help:school.teacher_data,weeks_to_pass:0
+#: help:util.periodicity,weeks_to_pass:0
+msgid "Weeks to pass until next week"
+msgstr "Setmanas a pasar hasta la sigüiente semana"
+
+#. module: school_iwl
+#: view:school.iwl.check_seances:0
+msgid "Check Seances"
+msgstr "Comprobar sesiones"
+
+#. module: school_iwl
+#: field:school.teacher_data,duration:0
+msgid "Hour to"
+msgstr "Hora final"
+
+#. module: school_iwl
+#: model:ir.actions.act_window,name:school_iwl.school_classe_list_for_teachers_act
+#: model:ir.ui.menu,name:school_iwl.school_teachers_classe_mi
+msgid "Own Classes"
+msgstr "Clases propias"
+
+#. module: school_iwl
+#: selection:school.teacher_data,title:0
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: school_iwl
+#: model:ir.actions.act_window,name:school_iwl.school_iwl_check_seances_act
+msgid "IWL Check Seances"
+msgstr "Comprobar sesiones IWL"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,wrong_seances:0
+msgid "Wrong Seances"
+msgstr "Sesiones erróneas"
+
+#. module: school_iwl
+#: field:school.iwl.handling,n_activities:0
+msgid "Num activities"
+msgstr "Num actividades"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,limit_from:0
+msgid "Limit from"
+msgstr "Límite desde"
+
+#. module: school_iwl
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "XML inválido para la estructura de la vista!"
+
+#. module: school_iwl
+#: view:school.iwl.handling:0
+msgid "Handling"
+msgstr "Manipulación"
+
+#. module: school_iwl
+#: view:school.classe:0
+#: field:school.impartition_week_line,room_id:0
+msgid "Room"
+msgstr "Aula"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,week_day:0
+#: selection:school.teacher_data,week_day:0
+#: selection:util.periodicity,week_day:0
+msgid "monday"
+msgstr "lunes"
+
+#. module: school_iwl
+#: help:school.impartition_week_line,week_to_init:0
+#: help:school.teacher_data,week_to_init:0
+#: help:util.periodicity,week_to_init:0
+msgid "Weeks to pass until first week"
+msgstr "Setmanas a pasar hasta la primera semana"
+
+#. module: school_iwl
+#: view:school.classe:0
+#: field:school.iwl.handling.teacher_course,teacher_id:0
+#: field:school.teacher_data,teacher_id:0
+msgid "Teacher"
+msgstr "Profesor"
+
+#. module: school_iwl
+#: field:school.iwl.handling,classification_name:0
+msgid "Classification name"
+msgstr "Nombre de la clasificación"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,classe_id:0
+msgid "Classe"
+msgstr "Clase"
+
+#. module: school_iwl
+#: selection:school.iwl.handling,classification_method:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,week_day:0
+#: selection:school.teacher_data,week_day:0
+#: selection:util.periodicity,week_day:0
+msgid "wednesday"
+msgstr "miércoles"
+
+#. module: school_iwl
+#: model:ir.module.module,description:school_iwl.module_meta_information
+msgid ""
+"\n"
+"To manage seances about a periodicity.\n"
+msgstr ""
+"\n"
+"To manage seances about a periodicity.\n"
+
+#. module: school_iwl
+#: view:school.classe:0
+#: field:school.classe,impartition_week_line_ids:0
+msgid "Week hours"
+msgstr "Horas semanales"
+
+#. module: school_iwl
+#: view:school.classe:0
+#: field:school.classe,teachers:0
+#: field:school.impartition_week_line,teachers:0
+msgid "Teachers"
+msgstr "Profesores"
+
+#. module: school_iwl
+#: selection:school.teacher_data,title:0
+msgid "Advisable"
+msgstr "Aconsejable"
+
+#. module: school_iwl
+#: field:school.iwl.handling.teacher_course,course_domain:0
+msgid "Course domain"
+msgstr "Dominio del curs"
+
+#. module: school_iwl
+#: selection:school.iwl.handling,classification_method:0
+msgid "Alphabetical classification"
+msgstr "Classificación alfabética"
+
+#. module: school_iwl
+#: field:school.room,impartition_week_lines:0
+msgid "Horary"
+msgstr "Horario"
+
+#. module: school_iwl
+#: field:school.iwl.handling,comment:0
+msgid "Comment"
+msgstr "Comentario"
+
+#. module: school_iwl
+#: model:ir.module.module,shortdesc:school_iwl.module_meta_information
+msgid "School Impartition Week Line"
+msgstr "School Impartition Week Line"
+
+#. module: school_iwl
+#: model:ir.model,name:school_iwl.model_school_iwl_check_seances
+msgid "school.iwl.check_seances"
+msgstr "school.iwl.check_seances"
+
+#. module: school_iwl
+#: field:school.iwl.handling,parent_group_domain:0
+msgid "Parent Group Domain"
+msgstr "Dominio del grupo padre"
+
+#. module: school_iwl
+#: help:school.impartition_week_line,duration:0
+msgid "Duration in hours"
+msgstr "Duración en horas"
+
+#. module: school_iwl
+#: field:school.iwl.handling,classification_id:0
+msgid "Classification"
+msgstr "Clasificación"
+
+#. module: school_iwl
+#: field:school.teacher_data,datetime_to:0
+msgid "To"
+msgstr "Hasta"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,subgroup:0
+msgid "Subgroup"
+msgstr "Subgrupo"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,hour_from:0
+#: field:school.teacher_data,hour_from:0
+#: field:util.periodicity,hour_from:0
+msgid "Hour from"
+msgstr "Hora de inicio"
+
+#. module: school_iwl
+#: selection:school.impartition_week_line,seance_check_state:0
+msgid "Programmed"
+msgstr "Programado"
+
+#. module: school_iwl
+#: field:school.iwl.handling,parent_group:0
+msgid "Parent group"
+msgstr "Grupo padre"
+
+#. module: school_iwl
+#: model:ir.model,name:school_iwl.model_util_periodicity
+msgid "A room to impartition a week hour for a seance class"
+msgstr "Una aula para impartir una hora semanal de una sesión de una clase"
+
+#. module: school_iwl
+#: field:school.iwl.handling.teacher_course,course_id:0
+msgid "Course"
+msgstr "Curso"
+
+#. module: school_iwl
+#: help:school.impartition_week_line,seance_check_state:0
+msgid "Seance check state."
+msgstr "Compobar el estado de la sesión"
+
+#. module: school_iwl
+#: selection:school.iwl.handling,state:0
+msgid "Done"
+msgstr "Fet"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,date_from:0
+#: field:util.periodicity,date_from:0
+msgid "Date from"
+msgstr "Fecha inicial"
+
+#. module: school_iwl
+#: field:school.iwl.handling,teacher_course_ids:0
+msgid "Teacher course assignation"
+msgstr "Assignación de professor del curso"
+
+#. module: school_iwl
+#: field:school.impartition_week_line,duration:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: school_iwl
+#: model:ir.model,name:school_iwl.model_school_teacher_data
+msgid "school.teacher_data"
+msgstr "school.teacher_data"
+

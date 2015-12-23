@@ -1,0 +1,430 @@
+<openerp>
+	<data>
+
+
+        <record model="ir.ui.view" id="groups_classification_tree_view">
+            <field name="name">groups.classification.tree.all</field>
+            <field name="model">groups.classification</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Classifications">
+                    <field name="name" />
+                    <field name="method" />
+                    <field name="method_one" />
+                    <field name="auto_active" />
+<!--                    <field name="same_group_older_assignations" /> -->
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="groups_classification_form_view">
+            <field name="name">groups.classification.form.all</field>
+            <field name="model">groups.classification</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Classification">
+                    <field name="name" />
+                    <field name="method" />
+                    <field name="method_one" />
+                    <field name="auto_active" />
+<!--                    <field name="same_group_older_assignations" /> -->
+                    <button name="run_classify" type="object" string="Reclassify" />
+                    <newline />
+                    <field name="groups_rel_ids" nolabel="1" colspan="4" >
+                        <tree string="Parent groups">
+                            <field name="parent_id" string="Parent group"/>
+                            <field name="child_id" string="Child group"/>
+                            <field name="direction" />
+                        </tree>
+                        <form>
+                            <field name="parent_id" string="Parent group"/>
+                            <field name="child_id" string="Child group"/>
+                            <field name="direction" />
+                            <newline />
+                            <field name="assignation_ids" colspan="4" />
+                        </form>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="groups_classification_list_act">
+            <field name="name">Classifications</field>
+            <field name="res_model">groups.classification</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		<record id="ir_actions_act_window_view_groups_classification_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_classification_list_act" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="groups_classification_tree_view" />
+			<field eval="0" name="sequence" />
+		</record>
+
+		<record id="ir_actions_act_window_view_groups_classification_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_classification_list_act" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="groups_classification_form_view" />
+			<field eval="1" name="sequence" />
+		</record>
+
+<!-- groups.group -->
+
+        <record model="ir.ui.view" id="groups_group_tree_view">
+            <field name="name">groups.group.tree.all</field>
+            <field name="model">groups.group</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Groups">
+                    <field name="name2" string="Group name" />
+                    <field name="priority" string="Priority"/>
+                    <field name="max_assignations" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="groups_group_search_view">
+            <field name="name">groups.group.search.all</field>
+            <field name="model">groups.group</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Groups">
+                    <field name="name2" string="Group name" />
+                    <field name="priority" string="Priority"/>
+                    <field name="max_assignations" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="groups_group_form_view">
+            <field name="name">groups.group.form.all</field>
+            <field name="model">groups.group</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Groups">
+                    <field name="name" string="Group name" on_change="on_change_name(name)" />
+                    <field name="name2" />
+                    <field name="priority" string="Priority"/>
+                    <field name="creation" string="Automatic creation"/>
+                    <field name="max_assignations" />
+                    <notebook colspan="4">
+                        <page string="Assignations">
+                    <field name="assignation_ids" string="Assignations" nolabel="1">
+                        <tree string="Participation assignation">
+<!--                            <field name="part_name" string="Participation"/>-->
+							<field name="participation_id" string="Participation" />
+                            <field name="datetime_from" string="From"/>
+                            <field name="datetime_to" string="To"/>
+                        </tree>
+                        <form>
+                            <field name="participation_id" string="Participation"/>
+                            <field name="datetime_from" string="From"/>
+                            <field name="datetime_to" string="To"/>
+                        </form>
+                    </field>
+                        </page>
+                        <page string="Parent groups" >
+                    <field name="parent_ids" nolabel="1" colspan="4">
+                        <tree string="Parent groups">
+                            <field name="parent_id" string="Parent group"/>
+                            <field name="classification" string="Classification"/>
+                            <field name="direction" />
+                        </tree>
+                        <form>
+                            <field name="parent_id" string="Parent group"/>
+                            <field name="classification" string="Classification"/>
+                            <field name="direction" />
+                        </form>
+                    </field>
+                        </page>
+                        <page string="Children groups" >
+                    <field name="children_ids" nolabel="1" colspan="4">
+                        <tree string="Children groups">
+                            <field name="child_id" string="Child group"/>
+                            <field name="classification" string="Classification"/>
+                            <field name="direction" />
+                        </tree>
+                        <form>
+                            <field name="child_id" string="Child group"/>
+                            <field name="classification" string="Classification"/>
+                            <field name="direction" />
+                        </form>
+                    </field>
+                        </page>
+                        <page string="Description">
+                        	<field name="description" nolabel="1" colspan="4" />
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="groups_group_list_act">
+            <field name="name">Groups</field>
+            <field name="res_model">groups.group</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+		<record id="ir_actions_act_window_view_groups_group_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_group_list_act" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="groups_group_tree_view" />
+			<field eval="0" name="sequence" />
+		</record>
+
+		<record id="ir_actions_act_window_view_groups_group_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_group_list_act" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="groups_group_form_view" />
+			<field eval="1" name="sequence" />
+		</record>
+
+<!--  groups.participation -->
+
+        <record model="ir.ui.view" id="groups_participation_tree_view">
+            <field name="name">groups.participation.tree.all</field>
+            <field name="model">groups.participation</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Participations">
+                    <field name="name" string="Participation name" />
+                    <field name="participant" string="Contact"/>
+                    <field name="group_ids" invisible="1" select="1" />
+                    <field name="group_txt" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="groups_participation_form_view">
+            <field name="name">groups.participation.form.all</field>
+            <field name="model">groups.participation</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Participations">
+                    <field name="name" string="Participation name" />
+                    <field name="participant" string="Contact"/>
+                    <notebook colspan="4">
+                        <page string="Assignations">
+                    		<field name="assignation_ids" string="Assignations" nolabel="1">
+		                        <tree string="Group Assignations">
+		                            <field name="group_id" string="Group"/>
+		                            <field name="datetime_from" string="From"/>
+		                            <field name="datetime_to" string="To"/>
+		                        </tree>
+		                        <form>
+		                            <field name="group_id" string="Group"/>
+		                            <field name="datetime_from" string="From"/>
+		                            <field name="datetime_to" string="To"/>
+		                        </form>
+		                    </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="groups_participation_list_act">
+            <field name="name">Participations</field>
+            <field name="res_model">groups.participation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+		<record id="ir_actions_act_window_view_groups_participation_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_participation_list_act" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="groups_participation_tree_view" />
+			<field eval="0" name="sequence" />
+		</record>
+
+		<record id="ir_actions_act_window_view_groups_participation_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_participation_list_act" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="groups_participation_form_view" />
+			<field eval="1" name="sequence" />
+		</record>
+
+<!-- groups.group_assignation -->
+
+        <record model="ir.ui.view" id="groups_group_assignation_tree_view">
+            <field name="name">groups.group_assignation.tree.all</field>
+            <field name="model">groups.group_assignation</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Group assignation">
+<!--                    <field name="part_name" string="Participation" />-->
+                    <field name="participation_id" string="Participation"/>
+                    <field name="group_id" string="Group"/>
+                    <field name="datetime_from" string="From"/>
+                    <field name="datetime_to" string="To"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="groups_group_assignation_form_view">
+            <field name="name">groups.group_assignation.form.all</field>
+            <field name="model">groups.group_assignation</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Group assignation">
+                    <field name="participation_id" string="Participation"/>
+                    <field name="group_id" string="Group"/>
+                    <field name="datetime_from" string="From"/>
+                    <field name="datetime_to" string="To"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="groups_group_assignation_list_act">
+            <field name="name">Group Assignations</field>
+            <field name="res_model">groups.group_assignation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+		<record id="ir_actions_act_window_view_groups_group_assignation_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_group_assignation_list_act" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="groups_group_assignation_tree_view" />
+			<field eval="0" name="sequence" />
+		</record>
+
+		<record id="ir_actions_act_window_view_groups_group_assignation_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_group_assignation_list_act" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="groups_group_assignation_form_view" />
+			<field eval="1" name="sequence" />
+		</record>
+
+<!-- groups.preference -->
+        <record model="ir.ui.view" id="groups_preference_tree_view">
+            <field name="name">groups.preference.tree.all</field>
+            <field name="model">groups.preference</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Group preferences" editable="bottom">
+                    <field name="participation_id" select="1" />
+                    <field name="group_id" select="1" />
+                    <field name="classification_id" select="1" />
+                    <field name="sequence" select="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="groups_preference_form_view">
+            <field name="name">groups.preference.form.all</field>
+            <field name="model">groups.preference</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Group preference">
+                    <field name="participation_id" />
+                    <field name="group_id" />
+                    <field name="classification_id" />
+                    <field name="sequence" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="groups_preference_list_act">
+            <field name="name">Preferences</field>
+            <field name="res_model">groups.preference</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		<record id="ir_actions_act_window_view_groups_preference_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_preference_list_act" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="groups_preference_tree_view" />
+			<field eval="10" name="sequence" />
+		</record>
+
+		<record id="ir_actions_act_window_view_groups_preference_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_preference_list_act" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="groups_preference_form_view" />
+			<field eval="20" name="sequence" />
+		</record>
+
+
+<!-- res.partner -->
+
+        <record model="ir.ui.view" id="res_partner_tg_form_view">
+            <field name="name">res.partner.tg.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+				<xpath expr="/form/sheet/notebook" position="inside">
+					<page string="Participations">
+						<field name="participation_ids" nolabel="1" />
+					</page>
+					<page string="Actual groups">
+						<field name="active_group_ids" nolabel="1" >
+							<tree>
+								<field name="name" />
+							</tree>
+						</field>
+					</page>
+				</xpath>
+			</field>
+        </record>
+
+        <record model="ir.ui.view" id="res_partner_contact_tg_tree_view">
+            <field name="name">res.partner.tg.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree" />
+			<field name="arch" type="xml">
+				<xpath expr="/tree" position="inside">
+					<field name="active_group_ids" select="1" />
+				</xpath>
+			</field>
+        </record>
+
+    <record model="ir.ui.view" id="view_partner_contact_tg_search">
+        <field name="name">res.partner.tg.search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="/search" position="inside">
+            	<field name="active_group_ids" select="1" />
+            </xpath>
+        </field>
+    </record>
+
+
+
+<!-- menus -->
+
+
+        <menuitem
+            id="groups_mis"
+            name="Groups Management" icon="terp-project" />
+        <menuitem
+            id="groups_mi"
+	    parent="groups_mis"
+            name="Groups Management" icon="terp-project" />
+        <menuitem
+            id="groups_group_mi"
+            parent="groups_mi" icon="STOCK_EDIT"
+            action="groups_group_list_act" />
+        <menuitem
+            id="groups_participation_mi"
+            parent="groups_mi" icon="STOCK_EDIT"
+            action="groups_participation_list_act" />
+        <menuitem
+            id="groups_group_assignation_mi"
+            parent="groups_mi" icon="STOCK_EDIT"
+            action="groups_group_assignation_list_act" />
+        <menuitem
+            id="groups_classification_mi"
+            parent="groups_mi" icon="STOCK_EDIT"
+            action="groups_classification_list_act" />
+        <menuitem
+            id="groups_preferences_mi"
+            parent="groups_mi" icon="STOCK_EDIT"
+            action="groups_preference_list_act" />
+
+
+
+    </data>
+
+
+
+</openerp>

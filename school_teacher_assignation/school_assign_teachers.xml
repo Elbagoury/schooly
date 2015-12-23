@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+<!-- school.impartition_week_line -->
+
+        <record model="ir.ui.view" id="school_iwl_blocked_form_view">
+            <field name="name">school.iwl_blocked.form</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="inherit_id" ref="school_iwl.school_impartition_week_line_form_view" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="/form/group/field[@name='duration']" position="after">
+                    <field name="teachers_blocked" />
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_iwl_blocked_tree_view">
+            <field name="name">school.iwl_blocked.tree</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="inherit_id" ref="school_iwl.school_impartition_week_line_tree_view" />
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='duration']" position="after">
+                    <field name="teachers_blocked" select="1" />
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_iwl_blocked_act">
+            <field name="name">Block Week Hours</field>
+            <field name="res_model">school.impartition_week_line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_iwl_blocked_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_blocked_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_iwl_blocked_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_iwl_blocked_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_iwl_blocked_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_iwl_blocked_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+        <menuitem
+            id="school_iwl_blocked_mi"
+            parent="school_teachers_suitability.school_teachers_suitability_mi" icon="STOCK_EDIT"
+            action="school_iwl_blocked_act" sequence="550" />
+
+<!-- school.teacher_data -->
+
+        <record model="ir.ui.view" id="school_teacher_data_blocked_form_view">
+            <field name="name">school.teacher_data_blocked.form</field>
+            <field name="model">school.teacher_data</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Teacher Data Blocked">
+		    <group>
+			<field name="classe_id" readonly="1" colspan="4" />
+			<field name="teacher_id" readonly="1" colspan="4" />
+			<field name="title" readonly="1" />
+			<field name="week_day" readonly="1" />
+			<field name="hour_from" readonly="1" />
+			<field name="duration" readonly="1" />
+			<field name="weeks_to_pass" readonly="1" />
+			<field name="week_to_init" readonly="1" />
+			<field name="datetime_from" readonly="1" />
+			<field name="datetime_to" readonly="1" />
+			<field name="blocked" />
+		    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_teacher_data_blocked_tree_view">
+            <field name="name">school.teacher_data_blocked.tree</field>
+            <field name="model">school.teacher_data</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Teacher Data Blocked" editable="bottom" >
+                    <field name="blocked" select="1" />
+                    <field name="classe_id" readonly="1" select="1" />
+                    <field name="teacher_id" readonly="1" select="1" />
+                    <field name="title" readonly="1" select="1" />
+                    <field name="week_day" readonly="1" select="1" />
+                    <field name="hour_from" readonly="1" />
+                    <field name="duration" readonly="1" />
+                    <field name="weeks_to_pass" readonly="1" />
+                    <field name="week_to_init" readonly="1" />
+                    <field name="datetime_from" readonly="1" />
+                    <field name="datetime_to" readonly="1" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_teacher_data_blocked_act">
+            <field name="name">Block Teachers</field>
+            <field name="res_model">school.teacher_data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_teacher_data_blocked_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_data_blocked_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_teacher_data_blocked_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_teacher_data_blocked_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_data_blocked_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_teacher_data_blocked_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+        <menuitem
+            id="school_teacher_data_blocked_mi"
+            parent="school_teachers_suitability.school_teachers_suitability_mi" icon="STOCK_EDIT"
+            action="school_teacher_data_blocked_act" sequence="540" />
+
+<!-- school.teachers_solution -->
+
+        <menuitem
+            id="school_teacher_solve_assign_mi"
+            parent="school_teachers_suitability.school_teachers_suitability_mi" icon="STOCK_EDIT" 
+	    name="Assignation Problem"
+	    sequence="540" />
+
+        <record model="ir.ui.view" id="school_teachers_solution_form_view">
+            <field name="name">school.teachers_solution.form</field>
+            <field name="model">school.teachers_solution</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Teachers Assignation Solution">
+		    <group>
+			<field name="created" colspan="4" />
+			<field name="total_hours" colspan="2" />
+			<field name="total_assigned" colspan="2" />
+			<field name="value" colspan="2" />
+    <!--                    <field name="fet_state" colspan="2" />-->
+			<field name="teacher_iwl_ids" colspan="2" />
+		    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_teachers_solution_tree_view">
+            <field name="name">school.teachers_solution.tree</field>
+            <field name="model">school.teachers_solution</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Teachers Assignation Solutions">
+                    <field name="created" />
+                    <field name="total_hours" />
+                    <field name="total_assigned" />
+                    <field name="value" />
+<!--                    <field name="fet_state" />-->
+                    <field name="teacher_iwl_ids" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_teachers_solution_act">
+            <field name="name">Teachers Assignation Solutions</field>
+            <field name="res_model">school.teachers_solution</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_teachers_solution_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teachers_solution_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_teachers_solution_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_teachers_solution_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teachers_solution_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_teachers_solution_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+        <menuitem
+            id="school_teachers_solution_mi"
+            parent="school_teacher_solve_assign_mi" icon="STOCK_EDIT"
+            action="school_teachers_solution_act" sequence="520" />
+
+<!-- teacher_iwl_solution -->
+
+        <record model="ir.ui.view" id="school_teacher_iwl_solution_form_view">
+            <field name="name">school.teacher_iwl_solution.form</field>
+            <field name="model">school.teacher_iwl_solution</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="IWL Teacher Assignation Solution">
+		    <group>
+			<field name="iwl_id" colspan="4" />
+			<field name="teacher_id" colspan="4" />
+			<field name="value" colspan="2" />
+		    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_teacher_iwl_solution_tree_view">
+            <field name="name">school.teacher_iwl_solution.tree</field>
+            <field name="model">school.teacher_iwl_solution</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="IWL Teachers Assignation Solutions">
+                    <field name="iwl_id" />
+                    <field name="teacher_id" />
+                    <field name="value" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_teacher_iwl_solution_act">
+            <field name="name">IWL Teacher Assignation Solutions</field>
+            <field name="res_model">school.teacher_iwl_solution</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_teacher_iwl_solution_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_iwl_solution_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_teacher_iwl_solution_form_view"/>
+			<field eval="20" name="sequence"/>
+		</record>
+		<record id="ir_actions_act_window_view_teacher_iwl_solution_1" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_teacher_iwl_solution_act"/>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="school_teacher_iwl_solution_tree_view"/>
+			<field eval="10" name="sequence"/>
+		</record>
+
+</data>
+
+</openerp>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+<!-- school.course -->
+        <record model="ir.ui.view" id="school_export_test_data_form_1">
+            <field name="name">school.export_test_data.form.1</field>
+            <field name="model">school.export_test_data</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Export Test Data">
+		    <group>
+			<field name="xml_data" colspan="3" />
+		    </group>
+		    <button name="export_xml" type="object" string="Export" />
+               </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_export_test_data_act_1">
+            <field name="name">Export Test Data</field>
+            <field name="res_model">school.export_test_data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+	    <field name="target">new</field>
+        </record>
+
+		<menuitem
+			id="school_export_test_data_mi"
+			parent="school_base.school_configuration_mi"
+			action="school_export_test_data_act_1"/>
+
+    </data>
+</openerp>

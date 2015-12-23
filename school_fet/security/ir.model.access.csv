@@ -1,0 +1,6 @@
+"id","name","model_id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_school_fet_hour_admin",school.fet.hour.admin","school.fet.hour","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_fet_day_admin",school.fet.day.admin","school.fet.day","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_fet_aules_propies_admin",school.fet.aules_propies.admin","school.fet.aules_propies","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_fet_tag_admin",school.fet.tag.admin","school.fet.tag","school_base.res_groups_school_direction_group",1,1,1,1
+

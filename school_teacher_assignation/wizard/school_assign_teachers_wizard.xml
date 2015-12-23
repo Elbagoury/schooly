@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+<!-- Creating Solutions -->
+
+        <record model="ir.ui.view" id="school_creating_solutions_form_view">
+            <field name="name">school.creating_solutions.form</field>
+            <field name="model">school.creating_solutions</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Creating Solutions Item">
+                    <group col="4">
+                        <field name="state" />
+                        <field name="created" />
+                        <field name="input_file" />
+                        <field name="output_file" />
+                        <field name="init" />
+                        <field name="seconds" />
+                        <field name="number_max_solutions" colspan="4" />
+                        <field name="time_to_compute" colspan="2" />
+                        <field name="num_proc" colspan="2" />
+                        <field name="afina" colspan="2" />
+                        <field name="deep_only_one" colspan="2" />
+                        <field name="value" />
+                        <field name="acabat" />
+                        <button name="activate" string="Activate Pool" type="object" />
+                        <button name="reactivate" string="ReActivate this" type="object" />
+                    </group>
+                    <field name="solution_ids" colspan="4" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_creating_solutions_tree_view">
+            <field name="name">school.creating_solutions.tree</field>
+            <field name="model">school.creating_solutions</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Creating Solutions List">
+                    <field name="state" />
+                    <field name="init" />
+                    <field name="seconds" />
+                    <field name="number_max_solutions" />
+                    <field name="time_to_compute" />
+                    <field name="num_proc" />
+                    <field name="afina" />
+                    <field name="deep_only_one" />
+                    <field name="value" />
+                    <field name="acabat" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_creating_solutions_act">
+            <field name="name">Creating Solutions</field>
+            <field name="res_model">school.creating_solutions</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="auto_refresh">10</field>
+        </record>
+
+        <menuitem
+            id="school_creating_solutions__mi"
+            parent="school_teacher_solve_assign_mi" icon="STOCK_EDIT"
+            action="school_creating_solutions_act" sequence="600" />
+
+        <record model="ir.cron" id="ir_cron_creating_solutions">
+            <field name="name">Revise creation pool</field>
+            <field name="numbercall" eval="-1" />
+            <field name="interval_type">minutes</field>
+            <field name="model">school.creating_solutions</field>
+            <field name="doall" eval="0" />
+            <field name="interval_number" eval="1" />
+            <field name="priority" eval="30" />
+            <field name="function">activate_search</field>
+        </record>
+        
+        
+        
+<!-- Wizard Assign Teachers -->
+
+        <record model="ir.ui.view" id="school_create_solutions_form_view">
+            <field name="name">school.create_solutions.form</field>
+            <field name="model">school.create_solutions</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Create Solutions">
+                    <group col="4">
+                        <field name="number_max_solutions" colspan="2" />
+                        <field name="time_to_compute" colspan="2" />
+                        <field name="num_proc" colspan="2" />
+                        <field name="afina" colspan="2" />
+                        <field name="deep_only_one" colspan="2" />
+                        <field name="total_classes_hours" colspan="2" readonly="1" />
+                        <field name="total_max_hours" colspan="2" readonly="1" />
+                        <field name="total_min_hours" colspan="2" readonly="1" />
+                    </group>
+                    <newline />
+                    <field name="data_by_course" nolabel="1" colspan="4" readonly="1" >
+                        <tree string="Data by Course" colors="red:min_hours&gt;classes_hours or max_hours&lt;classes_hours">
+                            <field name="course_id" />
+                            <field name="classes_hours" />
+                            <field name="max_hours" />
+                            <field name="min_hours" />
+                        </tree>
+                        <form string="Data by Course">
+                            <group>
+                                <field name="course_id" />
+                                <field name="classes_hours" />
+                                <field name="max_hours" />
+                                <field name="min_hours" />
+                            </group>
+                        </form>
+                    </field>
+                    <button type="object" name="create_solutions" colspan="4" string="Create Solutions" />
+                    <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="4" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_create_solutions_act">
+            <field name="name">Create Solutions</field>
+            <field name="res_model">school.create_solutions</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_create_solutions_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_create_solutions_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_create_solutions_form_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+
+        <menuitem
+            id="school_create_solutions__mi"
+            parent="school_teacher_solve_assign_mi" icon="STOCK_EDIT"
+            action="school_create_solutions_act" sequence="500" />
+
+<!-- school.apply_teacher_solution -->
+
+        <record model="ir.ui.view" id="school_apply_teacher_solution_form_view">
+            <field name="name">school.apply_teacher_solution.form</field>
+            <field name="model">school.apply_teacher_solution</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Apply Teacher Solutions Wizard">
+                    <field name="solution_ids" colspan="4" />
+                    <button type="object" name="action_change" colspan="4" string="Apply Solutions" />
+                    <button icon="gtk-cancel" type="object" name="act_cancel" special="cancel" string="Close" colspan="4" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_apply_teacher_solution_act">
+            <field name="name">Apply Teacher Solutions Wizard</field>
+            <field name="res_model">school.apply_teacher_solution</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+		<record id="ir_actions_act_window_view_apply_teacher_solution_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="school_apply_teacher_solution_act"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="school_apply_teacher_solution_form_view"/>
+			<field eval="0" name="sequence"/>
+		</record>
+
+        <record id="ir_apply_teacher_solution" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'school.teachers_solution'" name="model"/>
+            <field name="name">Apply Solutions</field>
+            <field eval="'ir.actions.act_window,%d'%school_apply_teacher_solution_act" name="value"/>
+        </record>
+
+</data>
+
+</openerp>

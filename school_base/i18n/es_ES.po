@@ -1,0 +1,702 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* school_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.15\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-05-18 16:46:47+0000\n"
+"PO-Revision-Date: 2011-05-18 19:47+0100\n"
+"Last-Translator: Pau Gangonells <pau@tecnoba.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.holiday_year_wizard_mi
+msgid "Year weekend holiday generator wizard"
+msgstr "Asistente para generar fines de semana festivos"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.groups_participation_list_act
+#: model:ir.ui.menu,name:school_base.school_participation_mi
+msgid "Participations"
+msgstr "Participaciones"
+
+#. module: school_base
+#: view:school.session:0
+msgid "Session name"
+msgstr "Nombre de la sesion"
+
+#. module: school_base
+#: field:school.course,min_hours:0
+msgid "Min Hours"
+msgstr "Min Horas"
+
+#. module: school_base
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "Nombre de modelo inválido en la acción definida"
+
+#. module: school_base
+#: view:school.course:0
+#: view:school.offer:0
+msgid "Course name"
+msgstr "Nombre del curso"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_offer
+msgid "school.offer"
+msgstr "school.offer"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_annotations_configuration_mi
+#: model:ir.ui.menu,name:school_base.school_annotations_mi
+#: model:ir.ui.menu,name:school_base.school_contact_annotation_mi
+msgid "Annotations"
+msgstr "Anotaciones"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_menu_partner_address_form
+msgid "Partner Addresses"
+msgstr "Direcciones de empresa"
+
+#. module: school_base
+#: selection:res.partner.contact,gender:0
+msgid "Woman"
+msgstr "Mujer"
+
+#. module: school_base
+#: field:school.course.line,offer_id:0
+#: view:school.offer:0
+#: view:school.session:0
+#: field:school.session,offer:0
+msgid "Offer"
+msgstr "Ofrecer"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_params
+msgid "To inherit and to add module parameters."
+msgstr "Heredar y añadir parámetros de módulo"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.school_holiday_interval_list_act
+#: model:ir.ui.menu,name:school_base.school_holiday_interval_mi
+#: model:ir.ui.menu,name:school_base.school_holiday_mi
+#: view:school.holiday_interval:0
+#: field:school.holidays_calendar,holidays:0
+msgid "Holidays"
+msgstr "Festivos"
+
+#. module: school_base
+#: field:school.holiday_interval,date_to:0
+#: field:school.session,date_to:0
+msgid "Date to"
+msgstr "Fecha final"
+
+#. module: school_base
+#: help:school.course,name:0
+msgid "The course name."
+msgstr "Nombre del curso"
+
+#. module: school_base
+#: help:school.session,school_id:0
+msgid "School that is related to the current session."
+msgstr "Centro educativo relacionado con la actual edición de curso"
+
+#. module: school_base
+#: help:school.course.line,course_id:0
+msgid "The course."
+msgstr "El curso"
+
+#. module: school_base
+#: selection:school.course.line,needly:0
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: school_base
+#: help:school.school,session_ids:0
+msgid "Sessions of this school."
+msgstr "Ediciones de curso de este centro educativo."
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_contact_annotation_function_mi
+msgid "Contact functions"
+msgstr "Funciones del contacto"
+
+#. module: school_base
+#: model:contact.annotation.function,name:school_base.sbd_res_partner_function_2
+msgid "Mother"
+msgstr "Madre"
+
+#. module: school_base
+#: field:res.partner.contact,vat:0
+msgid "VAT"
+msgstr "VAT"
+
+#. module: school_base
+#: help:school.school,user_ids:0
+msgid "Users of this school."
+msgstr "Usuarios de este centro educativo"
+
+#. module: school_base
+#: field:groups.participation,part_course_data_ok:0
+#: field:school.course,part_course_data_ok:0
+msgid "Data courses OK"
+msgstr "Información de cursos OK"
+
+#. module: school_base
+#: view:school.course:0
+#: field:school.course.line,course_id:0
+#: view:school.offer:0
+#: field:school.participation_course_data,course_id:0
+msgid "Course"
+msgstr "Tipo de actividad"
+
+#. module: school_base
+#: field:school.holiday_interval,date_from:0
+#: field:school.session,date_from:0
+msgid "Date from"
+msgstr "Fecha de inicio"
+
+#. module: school_base
+#: field:res.partner,doc_type:0
+#: field:res.partner.contact,doc_type:0
+msgid "Doc type"
+msgstr "Tipo de document"
+
+#. module: school_base
+#: help:school.school,calendar_ids:0
+msgid "Calendars of this school."
+msgstr "Calendarios de este centro educativo"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_teacher_mngt_mi
+msgid "Teacher Management"
+msgstr "Professorado"
+
+#. module: school_base
+#: help:school.session,offer:0
+msgid "The offer relationed with the item"
+msgstr "La oferta relacionada con el ítem"
+
+#. module: school_base
+#: help:school.course,code:0
+msgid "The course code."
+msgstr "El código del tipo de actividad"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_menu_partner_form
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: school_base
+#: view:groups.group:0
+#: view:groups.participation:0
+#: view:school.session:0
+msgid "From"
+msgstr "Desde"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_state_normalitza_mi
+msgid "Normalize State ranges"
+msgstr "Normalizar los rangos de los estados"
+
+#. module: school_base
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "XML inválido para la estructura de la vista!"
+
+#. module: school_base
+#: model:contact.annotation.function,name:school_base.sbd_res_partner_function_4
+msgid "Group Tutor"
+msgstr "Tutor de grupo"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.school_offer_list_act
+#: model:ir.ui.menu,name:school_base.school_offer_mi
+#: view:school.offer:0
+msgid "Offers"
+msgstr "Ofertas"
+
+#. module: school_base
+#: help:school.course.line,offer_id:0
+msgid "The offer."
+msgstr "La oferta"
+
+#. module: school_base
+#: model:ir.module.module,shortdesc:school_base.module_meta_information
+msgid "School Management Base"
+msgstr "Gestión base del centre educativo"
+
+#. module: school_base
+#: field:groups.participation,ref:0
+msgid "Ref"
+msgstr "Ref"
+
+#. module: school_base
+#: help:school.course.line,needly:0
+msgid "The need of the course into the offer."
+msgstr "La necesidad del curso dentro de la oferta"
+
+#. module: school_base
+#: field:school.participation_course_data,participation_id:0
+msgid "Participation"
+msgstr "Participación"
+
+#. module: school_base
+#: code:addons/school_base/school_base.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copy)"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_contact_annotation_states_mi
+msgid "Contact States"
+msgstr "Estado de los contactos"
+
+#. module: school_base
+#: view:school.holiday_interval:0
+msgid "Holiday interval"
+msgstr "Intérvalo de los festivos"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_configuration_mi
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: school_base
+#: view:school.holidays_calendar:0
+msgid "Holidays calendar"
+msgstr "Calendario de festivos"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.school_school_action
+#: model:ir.ui.menu,name:school_base.school_mi
+#: model:ir.ui.menu,name:school_base.school_school_mi
+#: field:res.users,school_id:0
+#: field:school.holidays_calendar,school_id:0
+#: field:school.session,school_id:0
+msgid "School"
+msgstr "School"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_reports_mi
+msgid "Reports and Queries"
+msgstr "Informes y consultas"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.school_holidays_calendar_list_act
+#: model:ir.ui.menu,name:school_base.school_holidays_calendar_mi
+#: view:school.holidays_calendar:0
+msgid "Holidays Calendars"
+msgstr "Calendarios de festivos"
+
+#. module: school_base
+#: field:groups.participation,course_lines:0
+msgid "Course Lines"
+msgstr "Líneas de cursos"
+
+#. module: school_base
+#: field:school.student,contact_id:0
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: school_base
+#: field:school.school,partner_id:0
+#: field:school.teacher,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: school_base
+#: view:school.offer:0
+msgid "Course line"
+msgstr "Línea de curso"
+
+#. module: school_base
+#: help:school.offer,courses_lines:0
+msgid "List of the courses in the offer"
+msgstr "Lista de cursos de la oferta"
+
+#. module: school_base
+#: view:groups.participation:0
+#: field:groups.participation,session_id:0
+#: field:school.participation_course_data,session_id:0
+#: view:school.session:0
+msgid "Session"
+msgstr "Edición de cursos"
+
+#. module: school_base
+#: help:school.holidays_calendar,school_id:0
+msgid "School that is related to the current calendar."
+msgstr "Centro educativo que está relacionado con el calendario actual"
+
+#. module: school_base
+#: field:groups.participation,date_from:0
+#: field:groups.participation,date_to:0
+#: field:school.session,participants:0
+#: field:school.teacher,teacher_user_id:0
+msgid "unknown"
+msgstr "desconocido"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_state_range_mi
+msgid "State ranges"
+msgstr "Rangos de estados"
+
+#. module: school_base
+#: help:school.course,special:0
+msgid "If the course is to put eat outher."
+msgstr "If the course is to put eat outher."
+
+#. module: school_base
+#: help:school.offer,name:0
+msgid "The offer name"
+msgstr "El nombre de la oferta"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_menu_partner_contact_form
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_holidays_calendar
+msgid "school.holidays_calendar"
+msgstr "school.holidays_calendar"
+
+#. module: school_base
+#: view:school.holidays_calendar.wizard:0
+msgid "Generate Year"
+msgstr "Genera año"
+
+#. module: school_base
+#: view:school.session:0
+msgid "Participants"
+msgstr "Participantes"
+
+#. module: school_base
+#: view:school.participation_course_data:0
+msgid "Participation Course Datas"
+msgstr "Datos de participación en los cursos"
+
+#. module: school_base
+#: view:school.offer:0
+msgid "Offer name"
+msgstr "Nombre de la oferta"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_teacher
+msgid "school.teacher"
+msgstr "school.teacher"
+
+#. module: school_base
+#: model:contact.annotation.function,name:school_base.sbd_res_partner_function_3
+msgid "Guardian"
+msgstr "Tutor legal"
+
+#. module: school_base
+#: field:school.holiday_interval,calendars:0
+#: view:school.school:0
+#: field:school.school,calendar_ids:0
+msgid "Calendars"
+msgstr "Calendarios"
+
+#. module: school_base
+#: field:school.course,participation_data_ids:0
+msgid "Data participations"
+msgstr "Datos de participaciones"
+
+#. module: school_base
+#: view:res.partner:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.groups_group_list_act
+#: model:ir.ui.menu,name:school_base.groups_mi
+#: model:ir.ui.menu,name:school_base.school_groups_group_mi
+msgid "Groups"
+msgstr "Grupos"
+
+#. module: school_base
+#: view:school.course:0
+#: field:school.course,active:0
+#: view:school.offer:0
+#: field:school.offer,active:0
+#: view:school.session:0
+#: field:school.session,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_contact_subtype_annotation_mi
+msgid "Annotation Subtypes"
+msgstr "Subtipos de anotaciones"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_course_line
+msgid "school.course.line"
+msgstr "school.course.line"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_session
+msgid "school.session"
+msgstr "school.session"
+
+#. module: school_base
+#: field:groups.group,limit_from:0
+#: field:groups.group_assignation,limit_from:0
+msgid "Limit from"
+msgstr "Límite desde"
+
+#. module: school_base
+#: help:school.session,name:0
+msgid "The session name"
+msgstr "Nombre de la edición de curso"
+
+#. module: school_base
+#: selection:school.course.line,needly:0
+msgid "Required"
+msgstr "Requerido"
+
+#. module: school_base
+#: view:school.school:0
+msgid "Schools"
+msgstr "Centros educativos"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_contact_type_annotation_mi
+msgid "Annotation Types"
+msgstr "Tipos de anotaciones"
+
+#. module: school_base
+#: view:school.course:0
+#: field:school.course,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.school_part_course_data_list_act
+#: model:ir.ui.menu,name:school_base.school_part_course_data_mi
+#: view:school.participation_course_data:0
+msgid "Participation Course Data"
+msgstr "Datos de participación en los cursos"
+
+#. module: school_base
+#: view:groups.group:0
+msgid "Group name"
+msgstr "Nombre de grupo"
+
+#. module: school_base
+#: view:school.course:0
+#: field:school.course,special:0
+msgid "Special"
+msgstr "Especial"
+
+#. module: school_base
+#: field:groups.group,limit_to:0
+#: field:groups.group_assignation,limit_to:0
+msgid "Limit to"
+msgstr "Límite hasta"
+
+#. module: school_base
+#: constraint:ir.model:0
+msgid "The Object name must start with x_ and not contain any special character !"
+msgstr "El nombre del objeto debe comenzar con x_ y no contener ningún carácter especial !"
+
+#. module: school_base
+#: code:addons/school_base/wizard/holiday_year_wizard.py:0
+#, python-format
+msgid "Weekend %02d of %04s"
+msgstr "Weekend %02d of %04s"
+
+#. module: school_base
+#: model:contact.annotation.function,name:school_base.sbd_res_partner_function_1
+msgid "Father"
+msgstr "Padre"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.holiday_year_wizard_act
+msgid "Year Generator"
+msgstr "Generador de años"
+
+#. module: school_base
+#: view:groups.group:0
+#: view:groups.participation:0
+#: view:school.session:0
+msgid "To"
+msgstr "Hasta"
+
+#. module: school_base
+#: model:ir.module.module,description:school_base.module_meta_information
+msgid ""
+"\n"
+"Base module for extends. It serves to manage participations in a school and their annotation and attendence.\n"
+msgstr ""
+"\n"
+"Base module for extends. It serves to manage participations in a school and their annotation and attendence.\n"
+
+#. module: school_base
+#: view:school.holidays_calendar:0
+msgid "Holiday intervals"
+msgstr "Intérvalos de festivos"
+
+#. module: school_base
+#: help:school.school,partner_id:0
+msgid "Partner that is related to the current school."
+msgstr "Empresa que está relacionada con el centro educativo actual"
+
+#. module: school_base
+#: field:school.course.line,weekly_hours:0
+#: view:school.offer:0
+msgid "Weekly hours"
+msgstr "Horas semanales"
+
+#. module: school_base
+#: view:school.school:0
+#: field:school.school,user_ids:0
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_participation_course_data
+msgid "school.participation_course_data"
+msgstr "school.participation_course_data"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.school_session_list_act
+#: model:ir.ui.menu,name:school_base.school_session_mi
+#: field:school.offer,session_ids:0
+#: view:school.school:0
+#: field:school.school,session_ids:0
+#: view:school.session:0
+msgid "Sessions"
+msgstr "Ediciones de cursos"
+
+#. module: school_base
+#: view:school.offer:0
+msgid "Course lines"
+msgstr "Líneas de curso"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_course
+msgid "school.course"
+msgstr "school.course"
+
+#. module: school_base
+#: model:contact.annotation.function,name:school_base.sbd_res_partner_function_0
+msgid "Student"
+msgstr "Alumno"
+
+#. module: school_base
+#: field:school.course.line,needly:0
+#: view:school.offer:0
+msgid "Needly"
+msgstr "Necessariamente"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_school
+msgid "school.school"
+msgstr "school.school"
+
+#. module: school_base
+#: view:res.partner:0
+msgid "Teacher"
+msgstr "Profesor"
+
+#. module: school_base
+#: selection:res.partner.contact,gender:0
+msgid "Man"
+msgstr "Hombre"
+
+#. module: school_base
+#: view:school.holidays_calendar.wizard:0
+msgid "_Cancel"
+msgstr "_Cancel"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.menu_school_address_book
+msgid "Address Book"
+msgstr "Libreta de direcciones"
+
+#. module: school_base
+#: field:school.course,name:0
+#: field:school.holiday_interval,name:0
+#: field:school.holidays_calendar,name:0
+#: field:school.offer,name:0
+#: field:school.school,name:0
+#: view:school.session:0
+#: field:school.session,name:0
+#: field:school.teacher,teacher_name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_direction_mi
+msgid "School Direction"
+msgstr "Dirección"
+
+#. module: school_base
+#: field:res.partner.contact,gender:0
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.teachers_list_act
+#: model:ir.ui.menu,name:school_base.school_teachers_mi
+#: view:res.partner:0
+msgid "Teachers"
+msgstr "Profesores"
+
+#. module: school_base
+#: view:school.holidays_calendar.wizard:0
+msgid "_Apply"
+msgstr "_Apply"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_contact_partner_function_mi
+msgid "Contact-Partner function"
+msgstr "Función Contacto-Tutor"
+
+#. module: school_base
+#: help:res.users,school_id:0
+msgid "School that is related to the current user"
+msgstr "Centro educativo relacionado con el contacto actual"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_student
+msgid "school.student"
+msgstr "school.student"
+
+#. module: school_base
+#: model:ir.ui.menu,name:school_base.school_contact_planning_change_states_mi
+msgid "Change States Planning"
+msgstr "Cambiar la planificación de los estados"
+
+#. module: school_base
+#: model:ir.actions.act_window,name:school_base.school_course_list_act
+#: model:ir.ui.menu,name:school_base.school_course_mi
+#: view:school.course:0
+#: view:school.offer:0
+#: field:school.offer,courses_lines:0
+msgid "Courses"
+msgstr "Tipos de actividades"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_holidays_calendar_wizard
+msgid "school.holidays_calendar.wizard"
+msgstr "school.holidays_calendar.wizard"
+
+#. module: school_base
+#: field:school.holidays_calendar.wizard,year:0
+msgid "Year"
+msgstr "Año"
+
+#. module: school_base
+#: model:ir.model,name:school_base.model_school_holiday_interval
+msgid "school.holiday_interval"
+msgstr "school.holiday_interval"
+

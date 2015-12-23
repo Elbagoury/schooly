@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- teacher demo -->
+
+
+        <record id="school_base.school_teacher_demo" model="school.teacher">
+            <field name="max_week_hours" eval="30" />
+            <field name="min_week_hours" eval="20" />
+        </record>
+
+        <record id="school_base.school_teacher_pete" model="school.teacher">
+            <field name="max_week_hours" eval="30" />
+            <field name="min_week_hours" eval="20" />
+        </record>
+
+
+        <record id="school_teacher_course_suitability_0" model="school.teacher_course_suitability">
+            <field name="teacher_id" eval="ref('school_base.school_teacher_demo')" />
+            <field name="course_id" ref="school_base.school_course_0" />
+            <field name="percentage" eval="90" />
+            <field name="max_week_hours" eval="20" />
+            <field name="min_week_hours" eval="10" />
+        </record>
+
+        <record id="school_teacher_course_suitability_1" model="school.teacher_course_suitability">
+            <field name="teacher_id" eval="ref('school_base.school_teacher_demo')" />
+            <field name="course_id" ref="school_base.school_course_1" />
+            <field name="percentage" eval="40" />
+            <field name="max_week_hours" eval="20" />
+            <field name="min_week_hours" eval="10" />
+        </record>
+
+        <record id="school_teacher_course_suitability_2" model="school.teacher_course_suitability">
+            <field name="teacher_id" eval="ref('school_base.school_teacher_demo')" />
+            <field name="course_id" ref="school_base.school_course_2" />
+            <field name="percentage" eval="70" />
+            <field name="max_week_hours" eval="20" />
+            <field name="min_week_hours" eval="10" />
+        </record>
+
+<!-- teacher Pete -->
+        <record id="school_teacher_course_suitability_3" model="school.teacher_course_suitability">
+            <field name="teacher_id" eval="ref('school_base.school_teacher_pete')" />
+            <field name="course_id" ref="school_base.school_course_0" />
+            <field name="percentage" eval="60" />
+            <field name="max_week_hours" eval="20" />
+            <field name="min_week_hours" eval="10" />
+        </record>
+
+        <record id="school_teacher_course_suitability_4" model="school.teacher_course_suitability">
+            <field name="teacher_id" eval="ref('school_base.school_teacher_pete')" />
+            <field name="course_id" ref="school_base.school_course_1" />
+            <field name="percentage" eval="80" />
+            <field name="max_week_hours" eval="20" />
+            <field name="min_week_hours" eval="10" />
+        </record>
+
+        <record id="school_teacher_course_suitability_5" model="school.teacher_course_suitability">
+            <field name="teacher_id" eval="ref('school_base.school_teacher_pete')" />
+            <field name="course_id" ref="school_base.school_course_2" />
+            <field name="percentage" eval="30" />
+            <field name="max_week_hours" eval="20" />
+            <field name="min_week_hours" eval="10" />
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+ <!-- school.fet.hour -->
+
+        <record model="ir.ui.view" id="school_fet_hour_form_view">
+            <field name="name">school.fet.hour.form</field>
+            <field name="model">school.fet.hour</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Hour">
+                    <group>
+                        <field name="hour_from" widget="float_time" />
+                        <field name="hour_to" widget="float_time" />
+                        <field name="sequence" />
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="school_fet_hour_tree_view">
+            <field name="name">school.fet.hour.tree</field>
+            <field name="model">school.fet.hour</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Hours">
+                    <field name="hour_from" widget="float_time" />
+                    <field name="hour_to" widget="float_time" />
+                    <field name="sequence" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_fet_hour_list_act">
+            <field name="name">Hours</field>
+            <field name="res_model">school.fet.hour</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem
+            id="school_fet_hour__mi"
+            parent="school_iwl.school_scheduling_mi" icon="STOCK_EDIT"
+            action="school_fet_hour_list_act" sequence="450" />
+            
+
+ <!-- school.fet.day -->
+ 
+        <record model="ir.ui.view" id="school_fet_day_form_view">
+            <field name="name">school.fet.day.form</field>
+            <field name="model">school.fet.day</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Day">
+                    <group>
+                        <field name="name" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_fet_day_tree_view">
+            <field name="name">school.fet.day.tree</field>
+            <field name="model">school.fet.day</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Days">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_fet_day_list_act">
+            <field name="name">Days</field>
+            <field name="res_model">school.fet.day</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="school_fet_day__mi"
+            parent="school_iwl.school_scheduling_mi" icon="STOCK_EDIT"
+            action="school_fet_day_list_act" sequence="450" />
+
+ <!-- school.fet.aules_propies -->
+        <record model="ir.ui.view" id="school_fet_aules_propies_form_view">
+            <field name="name">school.fet.aules_propies.form</field>
+            <field name="model">school.fet.aules_propies</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Own room">
+                    <group>
+                        <field name="group_id" />
+                        <field name="room_id" />
+                        <field name="percentatge" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_fet_aules_propies_tree_view">
+            <field name="name">school.fet.aules_propies.tree</field>
+            <field name="model">school.fet.aules_propies</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Own rooms">
+                    <field name="group_id" />
+                    <field name="room_id" />
+                    <field name="percentatge" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_fet_aules_propies_list_act">
+            <field name="name">Groups and Rooms</field>
+            <field name="res_model">school.fet.aules_propies</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="school_fet_aules_propies__mi"
+            parent="school_iwl.school_scheduling_mi" icon="STOCK_EDIT"
+            action="school_fet_aules_propies_list_act" sequence="450" />
+
+ <!-- school.fet.tag -->
+        <record model="ir.ui.view" id="school_fet_tag_form_view">
+            <field name="name">school.fet.tag.form</field>
+            <field name="model">school.fet.tag</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Tag">
+                    <group>
+                        <field name="name" colspan="4" />
+                    </group>
+                    <notebook colspan="4" >
+                        <page string="IWL">
+                            <field name="iwl_ids" colspan="4" nolabel="1" />
+                        </page>
+<!--                    <page string="Rooms">
+                            <field name="room_ids" colspan="4" />
+                        </page>
+-->
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_fet_tag_tree_view">
+            <field name="name">school.fet.tag.tree</field>
+            <field name="model">school.fet.tag</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_fet_tag_list_act">
+            <field name="name">IWL Tags</field>
+            <field name="res_model">school.fet.tag</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="school_fet_tag__mi"
+            parent="school_iwl.school_scheduling_mi" icon="STOCK_EDIT"
+            action="school_fet_tag_list_act" sequence="460" />
+
+ <!-- school.impartition_week_line -->
+        <record model="ir.ui.view" id="school_impartition_week_line_form_view2">
+            <field name="name">school.impartition_week_line.form2</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="inherit_id" ref="school_iwl.school_impartition_week_line_form_view" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook" position="inside">
+                    <page string="Tags">
+                        <field name="tag_ids" nolabel="1" colspan="4" />
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_impartition_week_line_tree_view2">
+            <field name="name">school.impartition_week_line.tree2</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="inherit_id" ref="school_iwl.school_impartition_week_line_tree_view" />
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='duration']" position="after">
+                        <field name="tag_ids" nolabel="1" select="1" />
+                </xpath>
+            </field>
+        </record>
+
+</data>
+
+</openerp>

@@ -1,0 +1,190 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    school module for OpenERP
+#    Copyright (C) 2010 Tecnoba S.L. (http://www.tecnoba.com)
+#       Pere Ramon Erro Mas <pereerro@tecnoba.com> All Rights Reserved.
+#
+#    This file is a part of school module
+#
+#    school OpenERP module is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    school OpenERP module is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+from osv import osv, fields
+
+class school_participation_course_data(osv.osv):
+    _name = 'school.participation_course_data'
+
+    _columns = {
+        'participation_id' : fields.many2one('groups.participation',ondelete='cascade',required=True,select=True,string='Participation',),
+        'course_id' : fields.many2one('school.course',ondelete='restrict',required=True,select=True,string='Course',),
+        'session_id' : fields.many2one('school.session',ondelete='set null',select=True,string='Session',),
+    }
+        
+    
+    def clean_dirty(self, cr, uid, context=None):
+        dicci={}
+        query="""        
+        SELECT co.id,p.id,s.id FROM school_course_line AS cl
+        INNER JOIN school_course AS co ON cl.course_id=co.id
+        INNER JOIN school_session AS s ON cl.offer_id=s.offer
+        INNER JOIN groups_participation AS p ON s.id=p.session_id
+        WHERE NOT (co.part_course_data_ok AND p.part_course_data_ok)
+        """
+        cr.execute(query)
+        for (course_id,part_id,session_id) in cr.fetchall(): dicci[(course_id,part_id)]=session_id            
+
+        query="""
+        SELECT co.id,p.id
+        FROM school_classe AS c,
+            groups_group_assignation AS ga,
+            school_course AS co,
+            groups_participation AS p 
+        WHERE c.group_id=ga.group_id AND
+            ga.datetime_from<c.date_to AND
+            ga.datetime_to>c.date_from AND
+            c.course_id=co.id AND
+            ga.participation_id=p.id AND
+            NOT (co.part_course_data_ok AND p.part_course_data_ok)
+        """
+        cr.execute(query)
+        for (course_id,part_id) in cr.fetchall():
+            key=(course_id,part_id)
+            if key not in dicci: dicci[key]=False
+        set_db=set()
+        set_mem=set(dicci.keys())
+        
+        query="""
+        SELECT co.id,p.id FROM school_participation_course_data AS pcd 
+        INNER JOIN school_course AS co ON pcd.course_id=co.id 
+        INNER JOIN groups_participation AS p ON pcd.participation_id=p.id 
+        WHERE NOT (co.part_course_data_ok AND p.part_course_data_ok)
+        """
+        cr.execute(query)
+        for (course_id,part_id) in cr.fetchall(): set_db.add((course_id,part_id))
+
+        for (course_id,part_id) in set_mem.difference(set_db):
+            self.create(cr, uid, {'course_id': course_id, 'participation_id': part_id, 'session_id': dicci[(course_id,part_id)]})
+        for (course_id,part_id) in set_mem.intersection(set_db):
+            self.write(cr, uid, super(school_participation_course_data, self).search(cr, uid, [('participation_id','=',part_id),('course_id','=',course_id)]), {'session_id': dicci[(course_id,part_id)]})
+        for (course_id,part_id) in set_db.difference(set_mem):
+            self.unlink(cr, uid, super(school_participation_course_data, self).search(cr, uid, [('participation_id','=',part_id),('course_id','=',course_id)]))
+        cr.execute("UPDATE school_course SET part_course_data_ok=TRUE WHERE NOT part_course_data_ok")
+        cr.execute("UPDATE groups_participation SET part_course_data_ok=TRUE WHERE NOT part_course_data_ok")
+        
+    def search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False):
+        self.clean_dirty(cr, uid, context=context)
+        ret=super(school_participation_course_data, self).search(cr, uid, args, offset=offset, limit=limit, order=order, context=context, count=count)
+        return ret
+    
+school_participation_course_data()
+    
+class school_course(osv.osv):
+    _name = 'school.course'
+    _inherit = 'school.course'
+    
+    _columns = {
+        'participation_data_ids' : fields.one2many('school.participation_course_data','course_id','Data participations',),
+        'part_course_data_ok' : fields.boolean('Data courses OK',),
+    }
+    
+    _defaults = {
+        'part_course_data_ok': lambda self,cr,uid,context: False,
+    }
+    
+school_course()
+
+class groups_participation(osv.osv):
+    _name = 'groups.participation'
+    _inherit = 'groups.participation'
+
+    _columns = {
+        'course_lines' : fields.one2many('school.participation_course_data', 'participation_id', string='Course Lines',),
+        'part_course_data_ok' : fields.boolean('Data courses OK',),
+    }
+    
+    _defaults = {
+        'part_course_data_ok': lambda self,cr,uid,context: False,
+    }
+        
+    def write(self, cr, uid, ids, vals, context=None):
+        if 'session_id' in vals: vals['part_course_data_ok']=False
+        ret=super(groups_participation, self).write(cr, uid, ids, vals, context=context)
+        return ret
+            
+groups_participation()
+
+class school_course_line(osv.osv):
+    _name = 'school.course.line'
+    _inherit = 'school.course.line'
+
+    def _touch_participation_course_data(self, cr, uid, ids, context=None):
+        if type(ids)!=type([]) or not ids: return
+        self.pool.get('groups.participation').write(cr, uid, 
+            self.pool.get('groups.participation').search(cr, uid, [
+                    ('session_id.offer.courses_lines','in',ids)   ]),
+            {'part_course_data_ok': False}, )
+        self.pool.get('school.course').write(cr, uid, [x['course_id'][0] for x in self.read(cr, uid, ids, ['course_id']) if x['course_id']], {'part_course_data_ok': False})
+        
+    def create(self, cr, uid, vals, context=None):
+        lid=super(school_course_line, self).create(cr, uid, vals, context=context)
+        if lid:
+            self._touch_participation_course_data(cr, uid, [lid], context)
+        return id
+
+    def write(self, cr, uid, ids, vals, context=None):
+        if 'course_id' in vals or 'offer_id' in vals:
+            self._touch_participation_course_data(cr, uid, ids, context)
+        return super(school_course_line, self).write(cr, uid, ids, vals, context=context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self._touch_participation_course_data(cr, uid, ids, context)
+        return super(school_course_line, self).create(cr, uid, ids, context=context)
+
+
+school_course_line()
+
+class school_session(osv.osv):
+    _name = 'school.session'
+    _inherit = 'school.session'
+
+    def _touch_participation_course_data(self, cr, uid, ids, context=None):
+        if type(ids)!=type([]) or not ids:
+            return
+        self.pool.get('groups.participation').write(cr, uid, self.pool.get('groups.participation').search(cr, uid, [('session_id','in',ids)]), {'part_course_data_ok': False})
+        offers=[x['offer'][0] for x in self.read(cr, uid, ids, ['offer']) if x['offer']]
+        cl_obj = self.pool.get('school.course.line')
+        course_ids = [x['course_id'][0] for x in cl_obj.read(cr, uid, cl_obj.search(cr, uid, [('offer_id','in',offers)]), ['course_id']) if x['course_id']]
+        self.pool.get('school.course').write(cr, uid, course_ids, {'part_course_data_ok': False})
+        
+    def create(self, cr, uid, vals, context=None):
+        s_id=super(school_session, self).create(cr, uid, vals, context=context)
+        if s_id:
+            self._touch_participation_course_data(cr, uid, [s_id], context)
+        return s_id
+
+    def write(self, cr, uid, ids, vals, context=None):
+        if 'offer' in vals:
+            self._touch_participation_course_data(cr, uid, ids, context)
+        return super(school_session, self).write(cr, uid, ids, vals, context=context)
+
+    def unlink(self, cr, uid, ids, context=None):
+        self._touch_participation_course_data(cr, uid, ids, context)
+        return super(school_session, self).create(cr, uid, ids, context=context)
+
+
+school_session()
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

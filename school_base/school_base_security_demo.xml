@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+
+ <!-- res.groups -->
+ 
+         <record id="base.user_demo" model="res.users">
+            <field eval="[(4, ref('res_groups_school_direction_group'))]" name="groups_id"/>
+        </record>
+
+         <record id="base.user_demo" model="res.users">
+            <field eval="[(4, ref('res_groups_school_coordination_group'))]" name="groups_id"/>
+        </record>
+
+         <record id="base.user_demo" model="res.users">
+            <field eval="[(4, ref('res_groups_school_administrator_group'))]" name="groups_id"/>
+        </record>
+
+         <record id="base.user_demo" model="res.users">
+            <field eval="[(4, ref('res_groups_school_professor_group'))]" name="groups_id"/>
+        </record>
+
+         <record id="base.user_demo" model="res.users">
+            <field eval="[(4, ref('res_groups_school_tutor_group'))]" name="groups_id"/>
+        </record>
+
+         <record id="base.user_demo" model="res.users">
+            <field eval="[(4, ref('school_useability_multi_school'))]" name="groups_id"/>
+        </record>
+
+    </data>
+</openerp>

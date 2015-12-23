@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--
+		Resource: school.create_session
+-->
+        <record id="school_create_session_0" model="school.create_session">
+            <field name="name">15-16</field>
+            <field name="offer_ids" eval="[(6,0,[ref('school_base.school_offer_0'),
+            ref('school_base.school_offer_1'),
+            ref('school_base.school_offer_2'),
+            ref('school_base.school_offer_3'),
+            ref('school_base.school_offer_4'),
+            ref('school_base.school_offer_5'),])]" />
+            <field name="date_from">2015-09-15</field>
+            <field name="date_to">2016-06-22</field>
+            <field name="lines" eval="3" />
+        </record>
+
+        <function model="school.create_session" name="action_apply">
+            <value eval="[ref('school_create_session_0'),]" />
+        </function>
+
+
+
+        <record id="school_contact_0" model="res.partner">
+            <field name="name">Roc Erro Grau</field>
+        </record>
+
+        <record id="school_participation_0" model="groups.participation">
+            <field name="participant" eval="ref('school_contact_0')"/>
+        </record>
+        
+        <record id="school_group_assignation_1" model="groups.group_assignation">
+            <field name="participation_id" eval="ref('school_participation_0')" />
+            <field name="group_id" model="groups.group" search="[('name','=','BTX1 15-16')]" />
+        </record>
+
+
+        <!--
+		Resource: school.building
+-->
+        <record id="school_building_0" model="school.building">
+            <field name="name">Mòdul 0</field>
+        </record>
+
+
+        <!--
+		Resource: school.room
+-->
+        <record id="school_room_0" model="school.room">
+            <field name="name">A101</field>
+            <field name="capacity" eval="30" />
+            <field name="building_id" ref="school_building_0" />
+        </record>
+
+        <record id="school_room_1" model="school.room">
+            <field name="name">A102</field>
+            <field name="capacity" eval="30" />
+            <field name="building_id" ref="school_building_0" />
+        </record>
+
+        <record id="school_room_2" model="school.room">
+            <field name="name">A103</field>
+            <field name="capacity" eval="30" />
+            <field name="building_id" ref="school_building_0" />
+        </record>
+
+    </data>
+</openerp>

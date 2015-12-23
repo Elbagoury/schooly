@@ -1,0 +1,46 @@
+<openerp>
+	<data>
+
+        <record model="ir.ui.view" id="groups_change_assignation_dates_wizard_form_view">
+            <field name="name">groups.change_assignation_dates.form.all</field>
+            <field name="model">groups.change_assignation_dates.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Change Assignation Dates Wizard">
+                    <field name="ga_ids" colspan="4" /><newline />
+                    <field name="datetime_from" /><field name="change_from" />
+                    <field name="datetime_to" /><field name="change_to" />
+                    <button special="cancel" string="Cancel" type="object"/>
+                    <button name="change_dates" string="Change dates" type="object" />
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="groups_change_assignation_dates_wizard_act">
+            <field name="name">Change Assignation Dates</field>
+            <field name="res_model">groups.change_assignation_dates.wizard</field>
+            <field name="src_model">groups.group</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.values" id="ir_open_change_assignation_dates_wizard">
+            <field name="key2">client_action_multi</field>
+            <field name="model">groups.group_assignation</field>
+            <field name="name">Change Dates</field>
+            <field name="value" eval="'ir.actions.act_window,%d'%groups_change_assignation_dates_wizard_act"/>
+            <field name="object" eval="True"/>
+        </record>
+
+		<record id="ir_actions_act_window_view_groups_change_assignation_dates_wizard_0" model="ir.actions.act_window.view">
+			<field name="act_window_id" ref="groups_change_assignation_dates_wizard_act" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="groups_change_assignation_dates_wizard_form_view" />
+			<field eval="0" name="sequence" />
+		</record>
+
+
+    </data>
+
+</openerp>

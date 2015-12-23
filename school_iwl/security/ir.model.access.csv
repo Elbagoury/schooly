@@ -1,0 +1,8 @@
+"id","name","model_id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_school_periodicity_teacher","school.peridicity.teacher","util.periodicity","school_base.res_groups_school_professor_group",1,0,0,0
+"access_school_iwl_teacher","school.iwl.teacher","school.impartition_week_line","school_base.res_groups_school_professor_group",1,0,0,0
+"access_school_teacher_data_teacher","school.teacher_data.teacher","school.teacher_data","school_base.res_groups_school_professor_group",1,0,0,0
+
+"access_school_periodicity_admin","school.peridicity.admin","util.periodicity","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_iwl_admin","school.iwl.admin","school.impartition_week_line","school_base.res_groups_school_direction_group",1,1,1,1
+"access_school_teacher_data_admin","school.teacher_data.admin","school.teacher_data","school_base.res_groups_school_direction_group",1,1,1,1

@@ -1,0 +1,419 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* timed_groups
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.15\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-05-19 10:49:46+0000\n"
+"PO-Revision-Date: 2011-05-19 13:09+0100\n"
+"Last-Translator: Pau Gangonells <pau@tecnoba.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: timed_groups
+#: field:groups.group_assignation,datetime_from:0
+msgid "Begining"
+msgstr "Inici"
+
+#. module: timed_groups
+#: field:groups.participation,participant:0
+msgid "Participant"
+msgstr "Participant"
+
+#. module: timed_groups
+#: field:groups.group_assignation,datetime_to:0
+msgid "End"
+msgstr "Fi"
+
+#. module: timed_groups
+#: view:groups.create_agrupation_wizard:0
+#: model:ir.actions.act_window,name:timed_groups.groups_create_agrupation_wizard_list_act
+msgid "Create Agrupation Wizard"
+msgstr "Assistent de creació d'agrupament"
+
+#. module: timed_groups
+#: field:groups.group_assignation,group_id:0
+#: view:groups.group_assignation_wizard:0
+#: view:groups.participation:0
+msgid "Group"
+msgstr "Grup"
+
+#. module: timed_groups
+#: model:ir.module.module,description:timed_groups.module_meta_information
+msgid ""
+"\n"
+"Base module for extends. It serves to manage the participations time in a groups.\n"
+msgstr ""
+"\n"
+"Base module for extends. It serves to manage the participations time in a groups.\n"
+
+#. module: timed_groups
+#: model:ir.module.module,shortdesc:timed_groups.module_meta_information
+#: model:ir.ui.menu,name:timed_groups.groups_mi
+msgid "Groups Management"
+msgstr "Gestió de Grups"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_groups_rel
+msgid "groups.groups_rel"
+msgstr "groups.groups_rel"
+
+#. module: timed_groups
+#: view:groups.create_agrupation_wizard:0
+msgid "Create agrupation"
+msgstr "Creació d'agrupament"
+
+#. module: timed_groups
+#: view:groups.group:0
+#: field:groups.group,priority:0
+msgid "Priority"
+msgstr "Prioritat"
+
+#. module: timed_groups
+#: view:groups.group:0
+#: field:groups.group_assignation_wizard,datetime_to:0
+#: view:groups.participation:0
+msgid "To"
+msgstr "Fins"
+
+#. module: timed_groups
+#: selection:groups.classification,method:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: timed_groups
+#: view:groups.group:0
+#: field:groups.group,assignation_ids:0
+#: view:groups.participation:0
+#: field:groups.participation,assignation_ids:0
+msgid "Assignations"
+msgstr "Assignacions"
+
+#. module: timed_groups
+#: field:groups.classification,method:0
+msgid "Classification Method"
+msgstr "Mètode de classificació"
+
+#. module: timed_groups
+#: view:groups.classification:0
+#: model:ir.actions.act_window,name:timed_groups.groups_classification_list_act
+msgid "Classifications"
+msgstr "Classificacions"
+
+#. module: timed_groups
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "Nom de model invàlid en l'acció definida"
+
+#. module: timed_groups
+#: field:groups.participation,name:0
+msgid "Ref"
+msgstr "Ref"
+
+#. module: timed_groups
+#: view:groups.group:0
+msgid "Parent groups"
+msgstr "Grups pares"
+
+#. module: timed_groups
+#: view:groups.group:0
+#: field:groups.group_assignation,participation_id:0
+msgid "Participation"
+msgstr "Participació"
+
+#. module: timed_groups
+#: field:groups.group,name2:0
+msgid "Complete name"
+msgstr "Nom complert"
+
+#. module: timed_groups
+#: selection:groups.groups_rel,direction:0
+msgid "Down"
+msgstr "Avall"
+
+#. module: timed_groups
+#: field:groups.groups_rel,direction:0
+msgid "Direction"
+msgstr "Direcció"
+
+#. module: timed_groups
+#: view:groups.group_assignation_wizard:0
+msgid "Create assignations"
+msgstr "Crea assignacions"
+
+#. module: timed_groups
+#: help:groups.group,name:0
+msgid "The group name"
+msgstr "Nom del grup"
+
+#. module: timed_groups
+#: view:groups.group:0
+msgid "Children groups"
+msgstr "Grups fills"
+
+#. module: timed_groups
+#: field:groups.group,participants:0
+#: field:groups.group_assignation_wizard,group_id:0
+msgid "unknown"
+msgstr "desconegut"
+
+#. module: timed_groups
+#: constraint:ir.model:0
+msgid "The Object name must start with x_ and not contain any special character !"
+msgstr "The Object name must start with x_ and not contain any special character !"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_create_intersection_wizard
+msgid "groups.create_intersection_wizard"
+msgstr "groups.create_intersection_wizard"
+
+#. module: timed_groups
+#: field:groups.create_agrupation_wizard,group_ids:0
+#: field:groups.create_classification_wizard,group_ids:0
+#: field:groups.create_intersection_wizard,group_ids:0
+#: view:groups.group:0
+#: view:groups.participation:0
+#: field:groups.participation,group_ids:0
+#: model:ir.actions.act_window,name:timed_groups.groups_group_list_act
+#: model:ir.ui.menu,name:timed_groups.groups_group_mi
+msgid "Groups"
+msgstr "Grups"
+
+#. module: timed_groups
+#: field:groups.groups_rel,child_id:0
+msgid "Child"
+msgstr "Fill"
+
+#. module: timed_groups
+#: view:groups.group:0
+msgid "Participation assignation"
+msgstr "Assignació de la participació"
+
+#. module: timed_groups
+#: help:groups.group,parent_ids:0
+msgid "The parent relations"
+msgstr "Les relacions dels pares"
+
+#. module: timed_groups
+#: field:groups.group,children_ids:0
+msgid "Children relations"
+msgstr "Relacions dels fills"
+
+#. module: timed_groups
+#: field:groups.group_assignation_wizard,participation_ids:0
+#: view:groups.participation:0
+#: model:ir.actions.act_window,name:timed_groups.groups_participation_list_act
+#: model:ir.ui.menu,name:timed_groups.groups_participation_mi
+msgid "Participations"
+msgstr "Participacions"
+
+#. module: timed_groups
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "XML invàlid per a l'estructura de la vista!"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_group
+msgid "groups.group"
+msgstr "groups.group"
+
+#. module: timed_groups
+#: field:groups.create_intersection_wizard,child_group_name:0
+msgid "Child group name"
+msgstr "Nom del grup fill"
+
+#. module: timed_groups
+#: field:groups.classification,name:0
+#: field:groups.group,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: timed_groups
+#: field:groups.create_agrupation_wizard,parent_group_name:0
+msgid "Parent group name"
+msgstr "Nom del grup pare"
+
+#. module: timed_groups
+#: field:groups.create_intersection_wizard,child_id:0
+#: view:groups.group:0
+msgid "Child group"
+msgstr "Grup fill"
+
+#. module: timed_groups
+#: field:groups.create_agrupation_wizard,classification_name:0
+#: field:groups.create_classification_wizard,classification_name:0
+msgid "Classification name"
+msgstr "Nom de la classificació"
+
+#. module: timed_groups
+#: field:groups.create_classification_wizard,groups_number:0
+msgid "Children groups number"
+msgstr "Nombre de grups fill"
+
+#. module: timed_groups
+#: view:groups.participation:0
+msgid "Participation name"
+msgstr "Nom de la participació"
+
+#. module: timed_groups
+#: view:groups.create_intersection_wizard:0
+#: model:ir.actions.act_window,name:timed_groups.groups_create_intersection_wizard_list_act
+msgid "Create Intersection Wizard"
+msgstr "Assistent de creació d'intersecció"
+
+#. module: timed_groups
+#: selection:groups.groups_rel,direction:0
+msgid "Up"
+msgstr "Amunt"
+
+#. module: timed_groups
+#: view:groups.group_assignation_wizard:0
+#: model:ir.actions.act_window,name:timed_groups.groups_group_assignation_wizard_list_act
+msgid "Group Assignation Wizard"
+msgstr "Group Assignation Wizard"
+
+#. module: timed_groups
+#: field:groups.group,creation:0
+msgid "Auto creation"
+msgstr "Auto creació"
+
+#. module: timed_groups
+#: view:groups.group:0
+#: field:groups.group_assignation_wizard,datetime_from:0
+#: view:groups.participation:0
+msgid "From"
+msgstr "Des de"
+
+#. module: timed_groups
+#: view:groups.participation:0
+msgid "Contact"
+msgstr "Contacte"
+
+#. module: timed_groups
+#: help:groups.participation,participant:0
+msgid "The contact of the participation"
+msgstr "El contacte de la participació"
+
+#. module: timed_groups
+#: view:groups.group:0
+msgid "Automatic creation"
+msgstr "Automatic creation"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_create_agrupation_wizard
+msgid "groups.create_agrupation_wizard"
+msgstr "groups.create_agrupation_wizard"
+
+#. module: timed_groups
+#: selection:groups.classification,method:0
+msgid "Alphabetical classification"
+msgstr "Classificació alfabètica"
+
+#. module: timed_groups
+#: field:groups.group_assignation_wizard,participation_domain:0
+msgid "Participations domain"
+msgstr "Domini de les participacions"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_create_classification_wizard
+msgid "groups.create_classification_wizard"
+msgstr "groups.create_classification_wizard"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_group_assignation
+msgid "groups.group_assignation"
+msgstr "groups.group_assignation"
+
+#. module: timed_groups
+#: field:groups.groups_rel,parent_id:0
+msgid "Parent"
+msgstr "Pares"
+
+#. module: timed_groups
+#: view:groups.classification:0
+#: view:groups.group:0
+#: field:groups.groups_rel,classification:0
+msgid "Classification"
+msgstr "Classificació"
+
+#. module: timed_groups
+#: field:groups.participation,group_txt:0
+msgid "Groups with assignation"
+msgstr "Grupos con asignación"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_participation
+msgid "groups.participation"
+msgstr "groups.participation"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_classification
+msgid "groups.classification"
+msgstr "groups.classification"
+
+#. module: timed_groups
+#: view:groups.participation:0
+msgid "Group Assignations"
+msgstr "Assignacions de grup"
+
+#. module: timed_groups
+#: field:groups.create_agrupation_wizard,parent_id:0
+#: field:groups.create_classification_wizard,parent_id:0
+#: view:groups.group:0
+msgid "Parent group"
+msgstr "Grup pare"
+
+#. module: timed_groups
+#: field:groups.classification,groups_rel_ids:0
+msgid "Groups rel"
+msgstr "Grups rel"
+
+#. module: timed_groups
+#: view:groups.create_intersection_wizard:0
+msgid "Create Intersection"
+msgstr "Crea intersecció"
+
+#. module: timed_groups
+#: view:groups.create_classification_wizard:0
+msgid "Create Classification"
+msgstr "Crea classificació"
+
+#. module: timed_groups
+#: view:groups.create_classification_wizard:0
+#: model:ir.actions.act_window,name:timed_groups.groups_create_classification_wizard_list_act
+msgid "Create Classification Wizard"
+msgstr "Assistent de creació de classificació"
+
+#. module: timed_groups
+#: field:groups.group,parent_ids:0
+msgid "Parent relations"
+msgstr "Relacions de pares"
+
+#. module: timed_groups
+#: view:groups.create_agrupation_wizard:0
+#: view:groups.create_classification_wizard:0
+#: view:groups.create_intersection_wizard:0
+#: view:groups.group_assignation_wizard:0
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#. module: timed_groups
+#: help:groups.group,children_ids:0
+msgid "The children relations"
+msgstr "Les relacions de fills"
+
+#. module: timed_groups
+#: view:groups.group:0
+msgid "Group name"
+msgstr "Nom de grup"
+
+#. module: timed_groups
+#: model:ir.model,name:timed_groups.model_groups_group_assignation_wizard
+msgid "groups.group_assignation_wizard"
+msgstr "groups.group_assignation_wizard"
+

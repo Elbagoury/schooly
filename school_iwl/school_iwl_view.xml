@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data >
+
+<!-- groups.group -->
+        <record model="ir.ui.view" id="groups_group_form_view">
+            <field name="name">groups.group.form.all</field>
+            <field name="model">groups.group</field>
+            <field name="inherit_id" ref="timed_groups.groups_group_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook" position="inside">
+                	<page string="Week Lines">
+                    	<field name="iwl_ids" nolabel="1" colspan="4" />
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+<!-- school.classe -->
+        <record model="ir.ui.view" id="groups_classe_form_view_2">
+            <field name="name">school.classe.form.all</field>
+            <field name="model">school.classe</field>
+            <field name="inherit_id" ref="school_classe.school_classe_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook" position="inside">
+                    <page string="Weekly hours">
+                        <field name="impartition_week_line_ids" colspan="4" nolabel="1">
+                            <tree string="Week hours">
+                                <field name="week_day" />
+                                <field name="hour_from" widget="float_time" />
+                                <field name="tz" />
+                                <field name="duration" widget="float_time" />
+                                <field name="date_from" />
+                                <field name="date_to" />
+                                <field name="weeks_to_pass" />
+                                <field name="week_to_init" />
+                                <field name="room_id" />
+                                <field name="subgroup" />
+                                <field name="teachers" colspan="4" />
+                            </tree>
+                            <form string="Week hour">
+                                <group>
+                                    <field name="week_day" />
+                                    <field name="hour_from" widget="float_time" />
+                                    <field name="tz" />
+                                    <field name="duration" widget="float_time" />
+                                    <field name="date_from" />
+                                    <field name="date_to" />
+                                    <field name="weeks_to_pass" />
+                                    <field name="week_to_init" />
+                                    <field name="room_id" />
+                                    <field name="subgroup" />
+                                </group>
+                                <field name="teachers" colspan="4">
+                                    <tree string="Teachers">
+                                        <field name="teacher_id" />
+                                        <field name="title" />
+                                        <field name="week_day" />
+                                        <field name="hour_from" widget="float_time" />
+                                        <field name="duration" widget="float_time" />
+                                        <field name="weeks_to_pass" />
+                                        <field name="week_to_init" />
+                                    </tree>
+                                    <form string="Teacher">
+                                        <group>
+                                            <field name="teacher_id" />
+                                            <field name="title" />
+                                            <field name="week_day" />
+                                            <field name="hour_from" widget="float_time" />
+                                            <field name="duration" widget="float_time" />
+                                            <field name="weeks_to_pass" />
+                                            <field name="week_to_init" />
+                                        </group>
+                                    </form>
+                                </field>
+                           </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_classe_list_for_teachers_act">
+            <field name="name">Own Classes</field>
+            <field name="res_model">school.classe</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('impartition_week_line_ids.teachers.teacher_id.user_id.id','=',uid)]</field>
+        </record>
+
+        <record model="ir.actions.server" id="generate_classe_iwls">
+            <field name="name">Generate Classe IWL</field>
+            <field name="model_id" ref="school_classe.model_school_classe" />
+            <field name="code">action = pool['school.classe'].generate_iwls(cr, user, context.get('active_ids',[obj.id]))</field>
+        </record>
+
+        <record model="ir.values" id="ir_generate_classe_iwls">
+            <field name="key2">client_action_multi</field>
+            <field name="model">school.classe</field>
+            <field name="name">Create Week Hours</field>
+            <field name="value" eval="'ir.actions.server,%d'%generate_classe_iwls" />
+            <field name="object" eval="True" />
+        </record>
+        
+ <!-- school.impartition_week_line -->
+        <record model="ir.ui.view" id="school_impartition_week_line_form_view">
+            <field name="name">school.impartition_week_line.form</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="priority" eval="10" /> 
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Week hour">
+                    <group>
+                        <field name="classe_id" on_change="on_change_classe(classe_id, subgroup)" />
+                        <field name="subgroup" />
+                        <field name="room_id" />
+                        <field name="week_day" />
+                        <field name="hour_from" widget="float_time" />
+                        <field name="duration" widget="float_time" />
+                    </group>
+                    <notebook colspan="4" >
+                        <page string="Teachers">
+                            <field name="teachers" nolabel="1" colspan="4" />
+                        </page>
+                    </notebook>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_impartition_week_line_tree_view">
+            <field name="name">school.impartition_week_line.tree</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="priority" eval="10" />             
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Week hours">
+                    <field name="classe_id" />
+                    <field name="subgroup" />
+                    <field name="room_id" />
+                    <field name="week_day" />
+                    <field name="hour_from" widget="float_time" />
+                    <field name="teachers" />
+                    <field name="duration" widget="float_time" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_impartition_week_line_search_view">
+            <field name="name">school.impartition_week_line.search</field>
+            <field name="model">school.impartition_week_line</field>
+            <field name="priority" eval="10" />             
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Week Hours Search">
+                    <field name="classe_id" />
+                    <field name="room_id" />
+                    <field name="week_day" />
+                    <newline />
+                    <field name="hour_from" widget="float_time" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="school_impartition_week_line_list_act">
+            <field name="name">Week hours</field>
+            <field name="res_model">school.impartition_week_line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<!-- school.teacher_data -->
+        <record model="ir.ui.view" id="school_teacher_data_form_view">
+            <field name="name">school.teacher_data.form</field>
+            <field name="model">school.teacher_data</field>
+            <field name="priority" eval="10" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Teacher Data">
+                    <group>
+                        <field name="iwl_id" />
+                        <field name="teacher_id" />
+                        <field name="title" />
+                        <field name="datetime_from" />
+                        <field name="datetime_to" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school_teacher_data_tree_view">
+            <field name="name">school.teacher_data.tree</field>
+            <field name="model">school.teacher_data</field>
+            <field name="priority" eval="10" />
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Teacher Datas">
+                    <field name="iwl_id" />
+                    <field name="teacher_id" select="1" />
+                    <field name="title" />
+                </tree>
+            </field>
+        </record>
+
+<!--  school.teacher -->
+        <record model="ir.ui.view" id="school_teacher_form_view_0">
+            <field name="name">teacher.form.all.extension</field>
+            <field name="model">school.teacher</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="school_base.school_teacher_form_view_0" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook" position="inside">
+                    	<page string="IWLs">
+		                    <field name="teacher_data_ids" nolabel="1" />
+                    	</page>
+                </xpath>
+            </field>
+        </record>
+
+<!-- MENUS -->
+        <menuitem
+            id="school_scheduling_mi"
+            parent="school_base.school_mi" icon="STOCK_EDIT"
+            name="Scheduling" sequence="350" />
+
+        <menuitem
+            id="school_impartition_week_line__mi"
+            parent="school_scheduling_mi" icon="STOCK_EDIT"
+            action="school_impartition_week_line_list_act" sequence="450" />
+
+        <menuitem
+            id="school_teachers_classe_mi"
+            parent="school_base.school_teaching_mi" icon="STOCK_EDIT"
+            action="school_classe_list_for_teachers_act" sequence="71" />
+</data>
+
+</openerp>
