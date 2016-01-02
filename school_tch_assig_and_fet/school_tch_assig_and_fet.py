@@ -128,7 +128,7 @@ class school_creating_solutions(osv.osv):
                 ts_obj.write(cr, uid, w_ids, {'output_dir': output_dir,
                                               'fet_file': f.name,
                                               'fet_state': 'running'})
-                command = ['/usr/bin/fet',]
+                command = ['/usr/bin/xvfb-run','/usr/bin/fet',]
                 params = ['--inputfile=%s' % f.name,
                                       '--outputdir=%s' % output_dir,]
                 print " ".join(command + params)
