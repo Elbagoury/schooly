@@ -39,8 +39,10 @@ class school_create_test_data(osv.osv_memory):
     def create_test_data(self, cr, uid, ids, context=None):
         iwl_obj = self.pool.get('school.impartition_week_line')
         t_obj = self.pool.get('school.teacher')
+        u_obj = self.pool.get('res.users')
         tcs_obj = self.pool.get('school.teacher_course_suitability')
         r_obj = self.pool.get('school.room')
+        d_obj = self.pool.get('ir.model.data')
         for wiz in self.browse(cr, uid, ids):
             lack_by_course = defaultdict(int)
             total_lack = 0
@@ -50,17 +52,22 @@ class school_create_test_data(osv.osv_memory):
             num_teachers = float(total_lack) / wiz.num_week_hours_per_teacher
             t_ids = []
             for i in range(int(num_teachers)):
+                name = 'Room %s' % i
+                r_obj.create(cr, uid, {'name': name,})
                 name = 'Teacher Test %s' % i
                 login = 'TT%02d' % i
-                u_ids = self.pool.get('res.users').search(cr, uid, [('login','=',login)])
+                u_ids = u_obj.search(cr, uid, [('login','=',login)])
+                act_id = d_obj.xmlid_to_res_id(cr, uid, 'school_classe.school_seance_list_for_teachers_in_week_act')
                 vals = {'teacher_code': 'TT%02d' % i,
                         'max_week_hours': wiz.num_week_hours_per_teacher + wiz.lack,
                         'min_week_hours': max(0, wiz.num_week_hours_per_teacher - wiz.lack),
                         }
                 if u_ids:
                     vals.update({'user_id': u_ids[0]})
+                    self.pool.get('res.users').write(cr, uid, u_ids, {'action_id': act_id,})
                 else:
-                    vals.update({'name': name, 'login': login})
+                    vals.update({'name': name, 'login': login,
+                                 'password': login, 'action_id': act_id,})
                 t_ids += [t_obj.create(cr, uid, vals)]
             tcs_ids = []
             for c_id, lack in lack_by_course.items():

@@ -326,8 +326,11 @@
             <field name="name">Own Seances in week</field>
             <field name="res_model">school.seance</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">[('date','>',datetime.datetime.strptime(datetime.datetime.today().strftime('%Y %W')+' 1','%Y %W %w').strftime('%Y-%m-%d %H:%M:%S')),('teachers.teacher_id.user_id.id','=',uid)]</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="domain">[
+('date','&gt;',(context_today()+relativedelta(days=-15)).strftime('%Y-%m-%d')),
+('date','&lt;',(context_today()+relativedelta(days=15)).strftime('%Y-%m-%d')),
+('teachers.teacher_id.user_id.id','=',uid)]</field>
         </record>
 		<record id="ir_actions_act_window_view_school_seance_2" model="ir.actions.act_window.view">
 			<field name="act_window_id" ref="school_seance_list_for_teachers_in_week_act" />
@@ -405,6 +408,12 @@
                     id="school_seance_mi"
                     parent="school_base.school_configuration_mi" icon="STOCK_EDIT"
                     action="school_seance_list_act" sequence="80" groups="school_base.res_groups_school_coordination_group" />
+                <menuitem
+                    id="school_own_seances_mi"
+                    parent="school_base.school_teaching_mi" icon="STOCK_EDIT"
+                    action="school_seance_list_for_teachers_in_week_act" sequence="80"
+                    groups="school_base.res_groups_school_professor_group" />
+
 </data>
 
 </openerp>

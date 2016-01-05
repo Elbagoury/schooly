@@ -224,7 +224,8 @@
         <menuitem
             id="school_scheduling_mi"
             parent="school_base.school_mi" icon="STOCK_EDIT"
-            name="Scheduling" sequence="350" />
+            name="Scheduling" sequence="350"
+            groups="school_base.res_groups_school_direction_group" />
 
         <menuitem
             id="school_impartition_week_line__mi"

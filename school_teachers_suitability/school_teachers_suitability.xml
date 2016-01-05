@@ -6,7 +6,8 @@
         <menuitem
             id="school_teachers_suitability_mi"
             parent="school_base.school_mi" icon="STOCK_EDIT"
-            name="Teachers Suitability" sequence="550" />
+            name="Teachers Suitability" sequence="550"
+            groups="school_base.res_groups_school_direction_group" />
 
 <!-- school.impartition_week_line -->
 

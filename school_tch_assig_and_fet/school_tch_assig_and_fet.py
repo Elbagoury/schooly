@@ -100,6 +100,8 @@ class school_creating_solutions(osv.osv):
     }
 
     def activate_search(self, cr, uid, context=None):
+        if not context:
+            context = {}
         ts_obj = self.pool.get('school.teachers_solution')
         fe_obj = self.pool.get('school.fet.export')
         r_ids = ts_obj.search(cr, uid, [('fet_state','=','running')], limit=1)
@@ -120,7 +122,9 @@ class school_creating_solutions(osv.osv):
                     'iwl_ids': [(6,0,iwl_ids)],
                 }
                 wiz_id = self.pool.get('school.fet.export').create(cr, uid, vals, context=context)
-                fe_obj.generate_file(cr, uid, [wiz_id], context=context)
+                context2 = context.copy()
+                context2['tch_assig_id'] = ts.id
+                fe_obj.generate_file(cr, uid, [wiz_id], context=context2)
                 fe = fe_obj.browse(cr, uid, wiz_id, context=context)
                 f = tempfile.NamedTemporaryFile(delete=False)
                 f.write(base64.decodestring(fe.file))

@@ -53,7 +53,6 @@ class school_create_session(osv.osv_memory):
     def action_apply(self, cr, uid, ids, context=None):
         g_obj = self.pool.get('groups.group')
         cls_obj = self.pool.get('groups.classification')
-        r_obj = self.pool.get('school.room')
         for item in self.browse(cr, uid, ids, context=context):
             for offer in item.offer_ids:
                 name = "%s %s" % (offer.name, item.name)
@@ -79,7 +78,6 @@ class school_create_session(osv.osv_memory):
                 for line in range(item.lines):
                     for course in offer.course_ids:
                         cls_name = "%s-%s" % (course.code, item.name)
-                        r_obj.create(cr, uid, {'name': cls_name,})
                         if item.lines > 1:
                             classe_name = "%s-%s %s" % (course.code, item.name, line)
                         else:

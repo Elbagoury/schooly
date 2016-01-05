@@ -15,7 +15,8 @@
 	<menuitem
 		id="school_teaching_mi"
 		name="Teaching"
-		parent="school_mi" />
+		parent="school_mi"
+		groups="res_groups_school_professor_group" />
 		
 	<menuitem
 		id="school_configuration_mi"
